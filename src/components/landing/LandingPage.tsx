@@ -119,6 +119,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             <a href="#replay-preview" className="hover:text-[#F5F5F5] transition-colors">
               Memory Replay
             </a>
+            <a href="/film" className="hover:text-[#E7C45D] transition-colors">
+              Launch Film
+            </a>
             <a href="#faq" className="hover:text-[#F5F5F5] transition-colors">
               FAQ
             </a>
@@ -177,6 +180,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               className="hover:text-white py-1.5"
             >
               Memory Replay
+            </a>
+            <a
+              href="/film"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-[#E7C45D] py-1.5"
+            >
+              Launch Film
             </a>
             <a
               href="#faq"
@@ -339,6 +349,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   }`}
                 >
                   Learn More
+                </a>
+
+                <a
+                  href="/film"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full font-medium text-sm text-[#E7C45D] hover:text-[#FFF0B3] transition-colors"
+                >
+                  <span className="relative flex w-7 h-7 items-center justify-center rounded-full border border-[#D4AF37]/60">
+                    <span className="absolute inset-0 rounded-full border border-[#D4AF37]/40 animate-ping" />
+                    <span className="ml-0.5 w-0 h-0 border-y-[5px] border-y-transparent border-l-[8px] border-l-[#E7C45D]" />
+                  </span>
+                  Watch the film
                 </a>
               </div>
             </Reveal>

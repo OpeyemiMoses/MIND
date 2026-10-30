@@ -17,8 +17,9 @@
 [![Groq LLM](https://img.shields.io/badge/Groq-openai/gpt--oss--120b-F55036)](https://groq.com)
 [![Vercel Deployment](https://img.shields.io/badge/Vercel-mind--hazel.vercel.app-black?logo=vercel)](https://mind-hazel.vercel.app)
 [![Railway Deployment](https://img.shields.io/badge/Railway-mind--production--14a9.up.railway.app-0B0D0E?logo=railway)](https://mind-production-14a9.up.railway.app)
+[![Launch Film](https://img.shields.io/badge/Launch_Film-Watch_2%3A30_Motion_Film-D4AF37?labelColor=080808)](https://mind-hazel.vercel.app/film)
 
-[Vercel Live](https://mind-hazel.vercel.app) • [Railway Live](https://mind-production-14a9.up.railway.app) • [GitHub Repository](https://github.com/OpeyemiMoses/MIND) • [Judges' Guide](#judges-evaluation-guide-how-to-test-mind) • [Architecture](#system-architecture) • [Quickstart](#quickstart--local-development) • [Memory Replay](#the-signature-differentiator-memory-replay) • [Contributing](CONTRIBUTING.md)
+[Watch Launch Film](https://mind-hazel.vercel.app/film) • [Vercel Live](https://mind-hazel.vercel.app) • [Railway Live](https://mind-production-14a9.up.railway.app) • [GitHub Repository](https://github.com/OpeyemiMoses/MIND) • [Judges' Guide](#judges-evaluation-guide-how-to-test-mind) • [Architecture](#system-architecture) • [Quickstart](#quickstart--local-development) • [Memory Replay](#the-signature-differentiator-memory-replay) • [Contributing](CONTRIBUTING.md)
 
 <br/>
 
