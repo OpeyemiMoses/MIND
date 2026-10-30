@@ -214,15 +214,16 @@ export const AskMindView: React.FC<AskMindViewProps> = ({
 
                   {/* Learning Loop Auto-Remembered Banner */}
                   {analysis.autoSavedMemory && (
-                    <div className="px-3.5 py-2.5 rounded-xl bg-[#2CCD9A]/10 border border-[#2CCD9A]/30 flex items-center justify-between gap-2 text-[11px]">
+                    <div className="px-3.5 py-2.5 rounded-xl bg-[#2CCD9A]/15 border border-[#2CCD9A]/45 flex items-center justify-between gap-2 text-[11px] animate-upgrade shadow-[0_0_24px_rgba(44,205,154,0.25)]">
                       <div className="flex items-center gap-2 text-[#2CCD9A] min-w-0">
-                        <BookmarkCheck className="w-4 h-4 shrink-0" />
+                        <BookmarkCheck className="w-4 h-4 shrink-0 animate-bounce" />
                         <span className="truncate">
                           Remembered [{analysis.autoSavedMemory.category}]:{' '}
                           <strong className="text-white">{analysis.autoSavedMemory.title}</strong>
                         </span>
                       </div>
-                      <span className="font-mono text-[10px] text-[#9CA3AF] shrink-0">
+                      <span className="font-mono text-[10px] text-[#2CCD9A] bg-[#2CCD9A]/20 px-2 py-0.5 rounded-full shrink-0 flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2CCD9A] animate-pulse-ring inline-block" />
                         {analysis.autoSavedMemory.verifiedOnMainnet
                           ? 'Walrus Mainnet'
                           : 'Wallet Ledger'}

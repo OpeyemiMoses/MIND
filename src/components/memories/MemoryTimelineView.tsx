@@ -209,9 +209,9 @@ export const MemoryTimelineView: React.FC<MemoryTimelineViewProps> = ({
           {filteredMemories.map((mem) => (
             <div key={mem.id} className="relative group">
               {/* Gold Timeline Node */}
-              <div className="absolute -left-[23px] top-6 w-3 h-3 rounded-full bg-[#E7C45D] ring-4 ring-[#080808] shadow-[0_0_12px_rgba(212,175,55,0.55)]" />
+              <div className="absolute -left-[23px] top-6 w-3 h-3 rounded-full bg-[#E7C45D] ring-4 ring-[#080808] shadow-[0_0_12px_rgba(212,175,55,0.55)] group-hover:scale-125 transition-transform" />
 
-              <div className="mind-luxury-card rounded-3xl p-5 sm:p-6 space-y-3 relative overflow-hidden">
+              <div className="mind-luxury-card rounded-3xl p-5 sm:p-6 space-y-3 relative overflow-hidden transition-all duration-300 hover:border-[#D4AF37]/45 hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(212,175,55,0.12)]">
                 <div className="absolute -top-px left-8 right-12 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/45 to-transparent" />
 
                 <div className="flex flex-wrap items-center justify-between gap-2">
@@ -277,7 +277,8 @@ export const MemoryTimelineView: React.FC<MemoryTimelineViewProps> = ({
                   </span>
 
                   {mem.verifiedOnMainnet ? (
-                    <span className="text-[#2CCD9A] inline-flex items-center gap-1 font-medium">
+                    <span className="text-[#2CCD9A] inline-flex items-center gap-1.5 font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#2CCD9A] animate-pulse-ring inline-block" />
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       <span>Verified on Walrus Mainnet</span>
                     </span>

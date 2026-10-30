@@ -67,6 +67,7 @@ export const MemoryReplayView: React.FC = () => {
       {/* Top Replay Control Plaque */}
       <div className="gold-glass-plaque rounded-3xl p-5 sm:p-6 space-y-4 relative overflow-hidden">
         <div className="absolute -top-px left-10 right-14 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/70 to-transparent" />
+        {running && <div className="animate-laser-sweep pointer-events-none opacity-70" />}
 
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
           <div className="flex-1 flex items-center gap-3 bg-[#0C0B09]/90 border border-white/[0.09] focus-within:border-[#D4AF37]/60 rounded-2xl px-4 py-2.5 transition-colors">
@@ -214,6 +215,7 @@ export const MemoryReplayView: React.FC = () => {
             <div className="gold-glass-plaque rounded-3xl p-6 sm:p-7 flex flex-col justify-between space-y-6 relative overflow-hidden">
               <div className="absolute -top-px left-10 right-10 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/80 to-transparent" />
               <div className="pointer-events-none absolute top-0 right-0 w-52 h-52 bg-[radial-gradient(circle,rgba(212,175,55,0.14)_0%,transparent_70%)]" />
+              <div className="animate-laser-sweep pointer-events-none opacity-35" />
 
               <div className="space-y-4 relative z-10">
                 <div className="flex items-center justify-between pb-3.5 border-b border-white/[0.09]">
@@ -223,7 +225,8 @@ export const MemoryReplayView: React.FC = () => {
                       {replayData.withContext.title}
                     </h3>
                   </div>
-                  <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/45 text-[#F8E296] font-mono">
+                  <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/45 text-[#F8E296] font-mono flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#E7C45D] animate-pulse-ring inline-block" />
                     {replayData.withContext.badge}
                   </span>
                 </div>

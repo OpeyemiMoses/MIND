@@ -218,7 +218,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               <span className="text-xs uppercase tracking-[0.18em] font-semibold text-[#9CA3AF]">
                 Total Onchain Value
               </span>
-              <span className="text-[11px] px-3 py-1 rounded-full bg-[#15120B] border border-[#D4AF37]/35 text-[#F5D76E] font-mono">
+              <span className="text-[11px] px-3 py-1 rounded-full bg-[#15120B] border border-[#D4AF37]/35 text-[#F5D76E] font-mono flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E7C45D] animate-pulse-ring inline-block" />
                 {!connected
                   ? 'Wallet Disconnected'
                   : walletData?.rpcSource === 'tatum-mainnet'
@@ -269,15 +270,27 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 strokeLinejoin="round"
                 strokeDasharray={sparklineGeometry.hasCurve ? undefined : '5 5'}
                 opacity={sparklineGeometry.hasCurve ? 1 : 0.45}
+                className={sparklineGeometry.hasCurve ? 'animate-sparkline' : ''}
               />
               {connected && sparklineGeometry.hasCurve && (
-                <circle
-                  cx={sparklineGeometry.endX}
-                  cy={sparklineGeometry.endY}
-                  r="4"
-                  fill="#FFF0B3"
-                  className="animate-pulse"
-                />
+                <>
+                  <circle
+                    cx={sparklineGeometry.endX}
+                    cy={sparklineGeometry.endY}
+                    r="8"
+                    fill="none"
+                    stroke="#E7C45D"
+                    strokeWidth="1.5"
+                    className="animate-pulse-ring"
+                  />
+                  <circle
+                    cx={sparklineGeometry.endX}
+                    cy={sparklineGeometry.endY}
+                    r="4"
+                    fill="#FFF0B3"
+                    className="animate-pulse"
+                  />
+                </>
               )}
             </svg>
             {!connected && (
@@ -448,11 +461,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                           <span className="text-[#E7C45D] font-bold ml-1">{pct}%</span>
                         </div>
                       </div>
-                      <div className="w-full h-2 rounded-full bg-[#191815] overflow-hidden">
+                      <div className="w-full h-2 rounded-full bg-[#191815] overflow-hidden relative">
                         <div
-                          className="h-full bg-gradient-to-r from-[#C9A227] via-[#E7C45D] to-[#FFF0B3] rounded-full transition-all duration-500"
+                          className="h-full bg-gradient-to-r from-[#C9A227] via-[#E7C45D] to-[#FFF0B3] rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
                           style={{ width: `${pct}%` }}
-                        />
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
+                        </div>
                       </div>
                     </div>
                   );

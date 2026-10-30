@@ -258,7 +258,10 @@ function AppContent() {
           onGoToLanding={() => setCurrentView('landing')}
         />
 
-        <main className="flex-1 p-5 sm:p-8 max-w-7xl w-full mx-auto">
+        <main
+          key={currentView}
+          className="flex-1 p-5 sm:p-8 max-w-7xl w-full mx-auto animate-tab-glide"
+        >
           {currentView === 'dashboard' && (
             <DashboardView
               walletData={activeWalletData}

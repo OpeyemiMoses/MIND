@@ -177,7 +177,7 @@ export const GoalsView: React.FC<GoalsViewProps> = ({
             return (
               <div
                 key={g.id}
-                className="mind-luxury-card rounded-3xl p-6 flex flex-col justify-between space-y-6 relative overflow-hidden"
+                className="mind-luxury-card rounded-3xl p-6 flex flex-col justify-between space-y-6 relative overflow-hidden hover:-translate-y-1 hover:border-[#D4AF37]/50 hover:shadow-[0_12px_32px_rgba(212,175,55,0.18)] transition-all duration-300"
               >
                 <div className="absolute -top-px left-8 right-10 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/55 to-transparent" />
 
@@ -187,10 +187,17 @@ export const GoalsView: React.FC<GoalsViewProps> = ({
                       <Icon className="w-5 h-5" />
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="inline-flex items-center gap-1 text-[10px] px-2.5 py-0.5 rounded-full bg-[#15120B] border border-[#D4AF37]/30 text-[#F8E296] font-mono">
-                        <CheckCircle2 className="w-3 h-3 text-[#2CCD9A]" />
-                        <span>Memory Linked</span>
-                      </span>
+                      {percent >= 100 ? (
+                        <span className="inline-flex items-center gap-1 text-[10px] px-2.5 py-0.5 rounded-full bg-[#D4AF37]/25 border border-[#D4AF37]/60 text-[#FFF0B3] font-mono font-bold animate-pulse-ring">
+                          <CheckCircle2 className="w-3 h-3 text-[#2CCD9A]" />
+                          <span>Goal Met</span>
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 text-[10px] px-2.5 py-0.5 rounded-full bg-[#15120B] border border-[#D4AF37]/30 text-[#F8E296] font-mono">
+                          <CheckCircle2 className="w-3 h-3 text-[#2CCD9A]" />
+                          <span>Memory Linked</span>
+                        </span>
+                      )}
                       <button
                         onClick={() => onDeleteGoal(g.id)}
                         title="Remove goal"
@@ -217,11 +224,13 @@ export const GoalsView: React.FC<GoalsViewProps> = ({
                     </span>
                   </div>
 
-                  <div className="w-full h-2.5 rounded-full bg-[#191815] overflow-hidden">
+                  <div className="w-full h-2.5 rounded-full bg-[#191815] overflow-hidden relative">
                     <div
-                      className="h-full bg-gradient-to-r from-[#C9A227] via-[#E7C45D] to-[#FFF0B3] rounded-full transition-all duration-500"
+                      className="h-full bg-gradient-to-r from-[#C9A227] via-[#E7C45D] to-[#FFF0B3] rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
                       style={{ width: `${percent}%` }}
-                    />
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
+                    </div>
                   </div>
 
                   <div className="flex items-center justify-between text-[11px] text-[#8E939E] pt-1">
