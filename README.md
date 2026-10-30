@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="public/icon-512.png" width="100" height="100" alt="Mind Logo" style="border-radius: 24px; margin-bottom: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);" />
+
 # MIND
 
 ### Autonomous Consumer Financial Intelligence for Sui
@@ -13,9 +15,14 @@
 [![Tatum Sui gRPC](https://img.shields.io/badge/Tatum-Sui_Mainnet_gRPC-2680EB)](https://tatum.io)
 [![Walrus Memory](https://img.shields.io/badge/Walrus-@mysten--incubation/memwal-0066FF)](https://memory.walrus.xyz)
 [![Groq LLM](https://img.shields.io/badge/Groq-openai/gpt--oss--120b-F55036)](https://groq.com)
-[![Design](https://img.shields.io/badge/Design_System-Swiss_Private_Wealth-D4AF37)](https://github.com/OpeyemiMoses/MIND)
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-mind--hazel.vercel.app-black?logo=vercel)](https://mind-hazel.vercel.app)
+[![Railway Deployment](https://img.shields.io/badge/Railway-mind--production--14a9.up.railway.app-0B0D0E?logo=railway)](https://mind-production-14a9.up.railway.app)
 
-[Live App](https://mind-sui.vercel.app) • [GitHub Repository](https://github.com/OpeyemiMoses/MIND) • [Judges' Guide](#judges-evaluation-guide-how-to-test-mind) • [Architecture](#system-architecture) • [Quickstart](#quickstart--local-development) • [Memory Replay](#the-signature-differentiator-memory-replay) • [Contributing](CONTRIBUTING.md)
+[Vercel Live](https://mind-hazel.vercel.app) • [Railway Live](https://mind-production-14a9.up.railway.app) • [GitHub Repository](https://github.com/OpeyemiMoses/MIND) • [Judges' Guide](#judges-evaluation-guide-how-to-test-mind) • [Architecture](#system-architecture) • [Quickstart](#quickstart--local-development) • [Memory Replay](#the-signature-differentiator-memory-replay) • [Contributing](CONTRIBUTING.md)
+
+<br/>
+
+<img src="public/hero-laptop-seamless.png" width="760" alt="Mind Interface Preview" style="border-radius: 16px; margin-top: 16px; margin-bottom: 24px;" />
 
 </div>
 
@@ -34,7 +41,8 @@
 >
 > - **Hackathon**: Tatum × Walrus Total Recall Hackathon
 > - **Track**: Track 03 — Consumer Finance Apps
-> - **Live Deployment**: [mind-sui.vercel.app](https://mind-sui.vercel.app)
+> - **Production Deployment (Vercel)**: [mind-hazel.vercel.app](https://mind-hazel.vercel.app)
+> - **Production Deployment (Railway)**: [mind-production-14a9.up.railway.app](https://mind-production-14a9.up.railway.app)
 > - **Key Innovation**: Demonstrating that decentralized persistent memory on Walrus is not a cosmetic log, but fundamentally alters consumer financial guidance on Sui.
 
 ```
@@ -46,7 +54,7 @@
 ```
 
 ### 1. Step 1: Connect a Sui Wallet
-1. Open the application at [mind-sui.vercel.app](https://mind-sui.vercel.app) or locally at `http://localhost:3000`.
+1. Open the application at [mind-hazel.vercel.app](https://mind-hazel.vercel.app) (or [mind-production-14a9.up.railway.app](https://mind-production-14a9.up.railway.app) / locally at `http://localhost:3000`).
 2. Click **Get Started** from the landing page.
 3. The app automatically scans your browser for active Sui wallet extensions complying with the **Sui Wallet Standard** (e.g. **Slush / Sui Wallet**, **Suiet**, or **Nightly**).
 4. Click on your detected wallet to connect. If connecting for the first time, choose your custom username (saved permanently to your wallet account).
@@ -358,6 +366,12 @@ npm run lint
 
 # 3. Production build compilation
 npm run build
+
+# 4. Automated End-to-End Test Suite (Tatum + Walrus + Groq + Replay)
+npm run test:e2e
+
+# 5. Hackathon Readiness Diagnostic Check
+npm run readiness
 ```
 
 ---
