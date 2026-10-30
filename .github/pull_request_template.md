@@ -25,3 +25,4 @@ Fixes # (issue number) or closes # (issue number)
 - [ ] I have verified that **no private keys, API secrets, or `.env` files** are included in this PR
 - [ ] I have tested changes in both **Obsidian Dark** and **Alabaster Light** themes
 - [ ] I have verified responsive layout on desktop and mobile viewports
+
