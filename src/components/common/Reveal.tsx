@@ -18,9 +18,9 @@ export const Reveal: React.FC<RevealProps> = ({
   children,
   animation = 'fade-up',
   delayMs = 0,
-  durationMs = 700,
+  durationMs = 600,
   className = '',
-  threshold = 0.12,
+  threshold = 0.05,
   once = true,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -47,7 +47,7 @@ export const Reveal: React.FC<RevealProps> = ({
       },
       {
         threshold,
-        rootMargin: '0px 0px -40px 0px',
+        rootMargin: '0px 0px -10px 0px',
       }
     );
 

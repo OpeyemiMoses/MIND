@@ -15,6 +15,7 @@ import { AnalysisResponse } from '@/lib/intelligence/engine';
 import { WalrusMemory, MemoryCategory } from '@/lib/walrus/types';
 import { MindLogo } from '@/components/common/MindLogo';
 import { useWallet } from '@/context/WalletContext';
+import { Reveal } from '@/components/common/Reveal';
 
 interface AskMindViewProps {
   currentAddress: string | null;
@@ -134,54 +135,57 @@ export const AskMindView: React.FC<AskMindViewProps> = ({
       {/* Chat Stream or Luxury Empty Stage */}
       <div className="flex-1 overflow-y-auto space-y-6 pr-1">
         {messages.length === 0 ? (
-          <div className="gold-glass-plaque rounded-3xl p-8 sm:p-10 text-center space-y-6 my-4 relative overflow-hidden">
-            <div className="absolute -top-px left-12 right-12 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/70 to-transparent" />
-            <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.14)_0%,transparent_70%)]" />
+          <Reveal animation="fade-up" durationMs={500}>
+            <div className="gold-glass-plaque rounded-3xl p-8 sm:p-10 text-center space-y-6 my-4 relative overflow-hidden">
+              <div className="absolute -top-px left-12 right-12 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/70 to-transparent" />
+              <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.14)_0%,transparent_70%)]" />
 
-            <div className="flex justify-center relative z-10">
-              <MindLogo size="lg" framed showWordmark={false} />
-            </div>
-
-            <div className="space-y-2 max-w-xl mx-auto relative z-10">
-              <h2 className="text-xl sm:text-2xl font-sora font-semibold text-white">
-                Personal Financial Intelligence
-              </h2>
-              <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
-                {connected && currentAddress
-                  ? `Connected to ${currentAddress.slice(0, 6)}...${currentAddress.slice(-4)}. Ask about your live Sui Mainnet balances or state a personal goal or risk preference — Mind automatically remembers durable context in Walrus Memory.`
-                  : 'Connect your Sui wallet first so Mind can inspect your real Mainnet balances, goals, and saved Walrus context.'}
-              </p>
-            </div>
-
-            {!connected ? (
-              <div className="relative z-10 pt-1">
-                <button
-                  onClick={openWalletModal}
-                  className="btn-gold-primary px-6 py-3 rounded-full text-xs sm:text-sm font-semibold inline-flex items-center gap-2 cursor-pointer"
-                >
-                  <Wallet className="w-4 h-4" />
-                  <span>Connect Sui Wallet</span>
-                </button>
+              <div className="flex justify-center relative z-10">
+                <MindLogo size="lg" framed showWordmark={false} />
               </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left pt-2 relative z-10">
-                {suggestedPrompts.map((prompt, idx) => (
+
+              <div className="space-y-2 max-w-xl mx-auto relative z-10">
+                <h2 className="text-xl sm:text-2xl font-sora font-semibold text-white">
+                  Personal Financial Intelligence
+                </h2>
+                <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
+                  {connected && currentAddress
+                    ? `Connected to ${currentAddress.slice(0, 6)}...${currentAddress.slice(-4)}. Ask about your live Sui Mainnet balances or state a personal goal or risk preference — Mind automatically remembers durable context in Walrus Memory.`
+                    : 'Connect your Sui wallet first so Mind can inspect your real Mainnet balances, goals, and saved Walrus context.'}
+                </p>
+              </div>
+
+              {!connected ? (
+                <div className="relative z-10 pt-1">
                   <button
-                    key={idx}
-                    onClick={() => handleSend(prompt)}
-                    className="mind-luxury-card rounded-2xl p-4 text-xs text-[#E5E7EB] hover:text-[#FFF0B3] leading-relaxed text-left cursor-pointer"
+                    onClick={openWalletModal}
+                    className="btn-gold-primary px-6 py-3 rounded-full text-xs sm:text-sm font-semibold inline-flex items-center gap-2 cursor-pointer"
                   >
-                    {prompt}
+                    <Wallet className="w-4 h-4" />
+                    <span>Connect Sui Wallet</span>
                   </button>
-                ))}
-              </div>
-            )}
-          </div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left pt-2 relative z-10">
+                  {suggestedPrompts.map((prompt, idx) => (
+                    <Reveal key={idx} animation="pop" delayMs={idx * 75} durationMs={450}>
+                      <button
+                        onClick={() => handleSend(prompt)}
+                        className="mind-luxury-card rounded-2xl p-4 text-xs text-[#E5E7EB] hover:text-[#FFF0B3] leading-relaxed text-left cursor-pointer w-full h-full"
+                      >
+                        {prompt}
+                      </button>
+                    </Reveal>
+                  ))}
+                </div>
+              )}
+            </div>
+          </Reveal>
         ) : (
           messages.map((msg, idx) => {
             if (msg.role === 'user') {
               return (
-                <div key={idx} className="flex justify-end">
+                <div key={idx} className="flex justify-end animate-tab-glide">
                   <div className="max-w-lg bg-gradient-to-br from-[#231D10] to-[#12110E] text-[#F7F3E8] text-xs sm:text-sm px-5 py-3.5 rounded-2xl rounded-tr-sm border border-[#D4AF37]/35 shadow-lg">
                     <p>{msg.content}</p>
                     <span className="block text-[10px] text-[#8E939E] text-right mt-1.5 font-mono">
@@ -194,7 +198,7 @@ export const AskMindView: React.FC<AskMindViewProps> = ({
 
             if (msg.error) {
               return (
-                <div key={idx} className="flex items-start gap-3.5">
+                <div key={idx} className="flex items-start gap-3.5 animate-tab-glide">
                   <MindLogo size="sm" framed showWordmark={false} />
                   <div className="flex-1 mind-luxury-card rounded-2xl p-5 border border-red-500/30 text-xs text-red-300 flex items-center gap-2.5">
                     <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />
@@ -206,7 +210,7 @@ export const AskMindView: React.FC<AskMindViewProps> = ({
 
             const analysis = msg.analysis!;
             return (
-              <div key={idx} className="flex items-start gap-3.5">
+              <div key={idx} className="flex items-start gap-3.5 animate-tab-glide">
                 <MindLogo size="sm" framed showWordmark={false} className="mt-0.5" />
 
                 <div className="flex-1 mind-luxury-card rounded-3xl p-6 space-y-4 text-left relative overflow-hidden">
@@ -352,44 +356,46 @@ export const AskMindView: React.FC<AskMindViewProps> = ({
       </div>
 
       {/* Bottom Prompt Bar */}
-      <div className="space-y-3 pt-2">
-        {messages.length > 0 && connected && (
-          <div className="flex flex-wrap gap-2">
-            {suggestedPrompts.map((prompt, pIdx) => (
-              <button
-                key={pIdx}
-                onClick={() => setInputQuery(prompt)}
-                className="text-[11px] px-3.5 py-1.5 rounded-full bg-[#11100D] hover:bg-[#1C1810] border border-white/[0.08] hover:border-[#D4AF37]/40 text-[#9CA3AF] hover:text-[#F8E296] transition-colors cursor-pointer"
-              >
-                {prompt}
-              </button>
-            ))}
-          </div>
-        )}
+      <Reveal animation="fade-up" durationMs={450} className="w-full">
+        <div className="space-y-3 pt-2">
+          {messages.length > 0 && connected && (
+            <div className="flex flex-wrap gap-2">
+              {suggestedPrompts.map((prompt, pIdx) => (
+                <button
+                  key={pIdx}
+                  onClick={() => setInputQuery(prompt)}
+                  className="text-[11px] px-3.5 py-1.5 rounded-full bg-[#11100D] hover:bg-[#1C1810] border border-white/[0.08] hover:border-[#D4AF37]/40 text-[#9CA3AF] hover:text-[#F8E296] transition-colors cursor-pointer"
+                >
+                  {prompt}
+                </button>
+              ))}
+            </div>
+          )}
 
-        <div className="gold-glass-plaque rounded-2xl p-2 flex items-center gap-2 focus-within:border-[#F5D76E]/70 transition-colors">
-          <input
-            type="text"
-            value={inputQuery}
-            onChange={(e) => setInputQuery(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-            placeholder={
-              connected
-                ? 'Ask Mind about your live Sui balances, or state a goal/rule to remember...'
-                : 'Connect your Sui wallet to ask Mind about your portfolio...'
-            }
-            className="flex-1 bg-transparent px-4 py-2.5 text-xs sm:text-sm text-white placeholder-[#6B7280] outline-none"
-          />
-          <button
-            onClick={() => handleSend()}
-            disabled={!inputQuery.trim() || loading}
-            className="btn-gold-primary p-3 rounded-xl disabled:opacity-40 shrink-0 cursor-pointer"
-            aria-label="Send message to Mind"
-          >
-            <Send className="w-4 h-4" />
-          </button>
+          <div className="gold-glass-plaque rounded-2xl p-2 flex items-center gap-2 focus-within:border-[#F5D76E]/70 transition-colors">
+            <input
+              type="text"
+              value={inputQuery}
+              onChange={(e) => setInputQuery(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+              placeholder={
+                connected
+                  ? 'Ask Mind about your live Sui balances, or state a goal/rule to remember...'
+                  : 'Connect your Sui wallet to ask Mind about your portfolio...'
+              }
+              className="flex-1 bg-transparent px-4 py-2.5 text-xs sm:text-sm text-white placeholder-[#6B7280] outline-none"
+            />
+            <button
+              onClick={() => handleSend()}
+              disabled={!inputQuery.trim() || loading}
+              className="btn-gold-primary p-3 rounded-xl disabled:opacity-40 shrink-0 cursor-pointer"
+              aria-label="Send message to Mind"
+            >
+              <Send className="w-4 h-4" />
+            </button>
+          </div>
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 };

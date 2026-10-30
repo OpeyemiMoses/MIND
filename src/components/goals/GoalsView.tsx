@@ -15,6 +15,7 @@ import {
 import { FinancialGoal, GoalIconKind } from '@/lib/goals/types';
 import { MindLogo } from '@/components/common/MindLogo';
 import { useWallet } from '@/context/WalletContext';
+import { Reveal } from '@/components/common/Reveal';
 
 interface GoalsViewProps {
   goals: FinancialGoal[];
@@ -104,141 +105,148 @@ export const GoalsView: React.FC<GoalsViewProps> = ({
   return (
     <div className="space-y-6 max-w-5xl mx-auto text-left">
       {/* Top Action Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h2 className="text-xl font-sora font-semibold text-white">Wallet Financial Goals</h2>
-          <p className="text-xs text-[#8E939E] mt-0.5">
-            Every goal is bound to your Sui wallet and automatically written into your Mind Memory ledger.
-          </p>
-        </div>
+      <Reveal animation="fade-up" durationMs={450}>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-sora font-semibold text-white">Wallet Financial Goals</h2>
+            <p className="text-xs text-[#8E939E] mt-0.5">
+              Every goal is bound to your Sui wallet and automatically written into your Mind Memory ledger.
+            </p>
+          </div>
 
-        <button
-          onClick={handleOpenNew}
-          className="btn-gold-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-xs shrink-0 cursor-pointer self-start sm:self-auto"
-        >
-          <Plus className="w-4 h-4" />
-          <span>New Goal</span>
-        </button>
-      </div>
+          <button
+            onClick={handleOpenNew}
+            className="btn-gold-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-xs shrink-0 cursor-pointer self-start sm:self-auto"
+          >
+            <Plus className="w-4 h-4" />
+            <span>New Goal</span>
+          </button>
+        </div>
+      </Reveal>
 
       {/* Disconnected or Empty States vs Live Goals Grid */}
       {!connected ? (
-        <div className="gold-glass-plaque rounded-3xl p-10 text-center space-y-5 relative overflow-hidden">
-          <div className="absolute -top-px left-12 right-12 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/70 to-transparent" />
-          <div className="flex justify-center">
-            <MindLogo size="md" framed showWordmark={false} />
+        <Reveal animation="pop" durationMs={500}>
+          <div className="gold-glass-plaque rounded-3xl p-10 text-center space-y-5 relative overflow-hidden">
+            <div className="absolute -top-px left-12 right-12 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/70 to-transparent" />
+            <div className="flex justify-center">
+              <MindLogo size="md" framed showWordmark={false} />
+            </div>
+            <div className="space-y-1.5 max-w-md mx-auto">
+              <h3 className="text-lg font-sora font-semibold text-white">
+                Connect Your Sui Wallet to Manage Goals
+              </h3>
+              <p className="text-xs text-[#9CA3AF] leading-relaxed">
+                Financial targets are isolated per Sui wallet address so your savings milestones and yield reserves stay private to your account.
+              </p>
+            </div>
+            <button
+              onClick={openWalletModal}
+              className="btn-gold-primary px-6 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2 cursor-pointer"
+            >
+              <Wallet className="w-4 h-4" />
+              <span>Connect Sui Wallet</span>
+            </button>
           </div>
-          <div className="space-y-1.5 max-w-md mx-auto">
-            <h3 className="text-lg font-sora font-semibold text-white">
-              Connect Your Sui Wallet to Manage Goals
-            </h3>
-            <p className="text-xs text-[#9CA3AF] leading-relaxed">
-              Financial targets are isolated per Sui wallet address so your savings milestones and yield reserves stay private to your account.
-            </p>
-          </div>
-          <button
-            onClick={openWalletModal}
-            className="btn-gold-primary px-6 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2 cursor-pointer"
-          >
-            <Wallet className="w-4 h-4" />
-            <span>Connect Sui Wallet</span>
-          </button>
-        </div>
+        </Reveal>
       ) : goals.length === 0 ? (
-        <div className="gold-glass-plaque rounded-3xl p-10 text-center space-y-5 relative overflow-hidden">
-          <div className="absolute -top-px left-12 right-12 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/70 to-transparent" />
-          <div className="w-12 h-12 rounded-2xl bg-[#211B0E] border border-[#D4AF37]/40 text-[#E7C45D] flex items-center justify-center mx-auto">
-            <Target className="w-5 h-5" />
+        <Reveal animation="pop" durationMs={500}>
+          <div className="gold-glass-plaque rounded-3xl p-10 text-center space-y-5 relative overflow-hidden">
+            <div className="absolute -top-px left-12 right-12 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/70 to-transparent" />
+            <div className="w-12 h-12 rounded-2xl bg-[#211B0E] border border-[#D4AF37]/40 text-[#E7C45D] flex items-center justify-center mx-auto">
+              <Target className="w-5 h-5" />
+            </div>
+            <div className="space-y-1.5 max-w-md mx-auto">
+              <h3 className="text-lg font-sora font-semibold text-white">
+                No Financial Goals Created Yet
+              </h3>
+              <p className="text-xs text-[#9CA3AF] leading-relaxed">
+                Add a reserve, yield, or milestone target. Mind will store it in your memory timeline and factor it into every portfolio analysis.
+              </p>
+            </div>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="btn-gold-primary px-6 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2 cursor-pointer"
+            >
+              <Plus className="w-4 h-4" />
+              <span>Create Your First Goal</span>
+            </button>
           </div>
-          <div className="space-y-1.5 max-w-md mx-auto">
-            <h3 className="text-lg font-sora font-semibold text-white">
-              No Financial Goals Created Yet
-            </h3>
-            <p className="text-xs text-[#9CA3AF] leading-relaxed">
-              Add a reserve, yield, or milestone target. Mind will store it in your memory timeline and factor it into every portfolio analysis.
-            </p>
-          </div>
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="btn-gold-primary px-6 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2 cursor-pointer"
-          >
-            <Plus className="w-4 h-4" />
-            <span>Create Your First Goal</span>
-          </button>
-        </div>
+        </Reveal>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {goals.map((g) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+          {goals.map((g, idx) => {
             const Icon = ICON_BY_KIND[g.iconKind] || Target;
             const percent = Math.min(
               100,
               Math.max(0, Math.round((g.currentUsd / g.targetUsd) * 100))
             );
             return (
-              <div
-                key={g.id}
-                className="mind-luxury-card rounded-3xl p-6 flex flex-col justify-between space-y-6 relative overflow-hidden hover:-translate-y-1 hover:border-[#D4AF37]/50 hover:shadow-[0_12px_32px_rgba(212,175,55,0.18)] transition-all duration-300"
-              >
-                <div className="absolute -top-px left-8 right-10 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/55 to-transparent" />
+              <Reveal key={g.id} animation="pop" delayMs={idx * 70} durationMs={500} className="h-full">
+                <div
+                  className="mind-luxury-card rounded-3xl p-6 flex flex-col justify-between space-y-6 relative overflow-hidden hover:-translate-y-1 hover:border-[#D4AF37]/50 hover:shadow-[0_12px_32px_rgba(212,175,55,0.18)] transition-all duration-300 h-full"
+                >
+                  <div className="absolute -top-px left-8 right-10 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/55 to-transparent" />
 
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#261E0E] to-[#12100B] border border-[#D4AF37]/40 text-[#E7C45D] flex items-center justify-center">
-                      <Icon className="w-5 h-5" />
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#261E0E] to-[#12100B] border border-[#D4AF37]/40 text-[#E7C45D] flex items-center justify-center">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {percent >= 100 ? (
+                          <span className="inline-flex items-center gap-1 text-[10px] px-2.5 py-0.5 rounded-full bg-[#D4AF37]/25 border border-[#D4AF37]/60 text-[#FFF0B3] font-mono font-bold animate-pulse-ring">
+                            <CheckCircle2 className="w-3 h-3 text-[#2CCD9A]" />
+                            <span>Goal Met</span>
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-[10px] px-2.5 py-0.5 rounded-full bg-[#15120B] border border-[#D4AF37]/30 text-[#F8E296] font-mono">
+                            <CheckCircle2 className="w-3 h-3 text-[#2CCD9A]" />
+                            <span>Memory Linked</span>
+                          </span>
+                        )}
+                        <button
+                          onClick={() => onDeleteGoal(g.id)}
+                          title="Remove goal"
+                          className="w-7 h-7 rounded-lg bg-white/[0.03] hover:bg-red-500/15 border border-white/[0.07] hover:border-red-500/35 text-[#8E939E] hover:text-red-400 flex items-center justify-center transition-colors cursor-pointer"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      {percent >= 100 ? (
-                        <span className="inline-flex items-center gap-1 text-[10px] px-2.5 py-0.5 rounded-full bg-[#D4AF37]/25 border border-[#D4AF37]/60 text-[#FFF0B3] font-mono font-bold animate-pulse-ring">
-                          <CheckCircle2 className="w-3 h-3 text-[#2CCD9A]" />
-                          <span>Goal Met</span>
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center gap-1 text-[10px] px-2.5 py-0.5 rounded-full bg-[#15120B] border border-[#D4AF37]/30 text-[#F8E296] font-mono">
-                          <CheckCircle2 className="w-3 h-3 text-[#2CCD9A]" />
-                          <span>Memory Linked</span>
-                        </span>
-                      )}
-                      <button
-                        onClick={() => onDeleteGoal(g.id)}
-                        title="Remove goal"
-                        className="w-7 h-7 rounded-lg bg-white/[0.03] hover:bg-red-500/15 border border-white/[0.07] hover:border-red-500/35 text-[#8E939E] hover:text-red-400 flex items-center justify-center transition-colors cursor-pointer"
+
+                    <div>
+                      <h3 className="text-base font-semibold text-white font-sora">{g.title}</h3>
+                      <p className="text-xs text-[#8E939E] mt-0.5">{g.category}</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2.5">
+                    <div className="flex items-baseline justify-between text-xs font-mono">
+                      <span className="text-white font-bold text-sm">
+                        ${g.currentUsd.toLocaleString()}
+                      </span>
+                      <span className="text-[#8E939E]">
+                        Target: ${g.targetUsd.toLocaleString()}
+                      </span>
+                    </div>
+
+                    <div className="w-full h-2.5 rounded-full bg-[#191815] overflow-hidden relative">
+                      <div
+                        className="h-full bg-gradient-to-r from-[#C9A227] via-[#E7C45D] to-[#FFF0B3] rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
+                        style={{ width: `${percent}%` }}
                       >
-                        <Trash2 className="w-3.5 h-3.5" />
-                      </button>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between text-[11px] text-[#8E939E] pt-1">
+                      <span>Horizon: {g.deadline}</span>
+                      <span className="text-[#F8E296] font-semibold font-mono">{percent}%</span>
                     </div>
                   </div>
-
-                  <div>
-                    <h3 className="text-base font-semibold text-white font-sora">{g.title}</h3>
-                    <p className="text-xs text-[#8E939E] mt-0.5">{g.category}</p>
-                  </div>
                 </div>
-
-                <div className="space-y-2.5">
-                  <div className="flex items-baseline justify-between text-xs font-mono">
-                    <span className="text-white font-bold text-sm">
-                      ${g.currentUsd.toLocaleString()}
-                    </span>
-                    <span className="text-[#8E939E]">
-                      Target: ${g.targetUsd.toLocaleString()}
-                    </span>
-                  </div>
-
-                  <div className="w-full h-2.5 rounded-full bg-[#191815] overflow-hidden relative">
-                    <div
-                      className="h-full bg-gradient-to-r from-[#C9A227] via-[#E7C45D] to-[#FFF0B3] rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
-                      style={{ width: `${percent}%` }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between text-[11px] text-[#8E939E] pt-1">
-                    <span>Horizon: {g.deadline}</span>
-                    <span className="text-[#F8E296] font-semibold font-mono">{percent}%</span>
-                  </div>
-                </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

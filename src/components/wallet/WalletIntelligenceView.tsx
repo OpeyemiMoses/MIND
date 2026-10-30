@@ -17,6 +17,7 @@ import {
 import { WalletOverview } from '@/lib/sui/types';
 import { MindLogo } from '@/components/common/MindLogo';
 import { useWallet } from '@/context/WalletContext';
+import { Reveal } from '@/components/common/Reveal';
 
 interface WalletIntelligenceViewProps {
   walletData: WalletOverview | null;
@@ -207,9 +208,10 @@ export const WalletIntelligenceView: React.FC<WalletIntelligenceViewProps> = ({
 
       {/* Top Row: Token Distribution + Transaction Activity */}
       {(activeTab === 'overview' || activeTab === 'tokens' || activeTab === 'transactions') && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
           {/* Token Distribution Donut Card */}
-          <div className="mind-luxury-card rounded-3xl p-6 sm:p-7 relative overflow-hidden">
+          <Reveal animation="fade-up" delayMs={40} durationMs={550} className="h-full">
+            <div className="mind-luxury-card rounded-3xl p-6 sm:p-7 relative overflow-hidden h-full flex flex-col justify-between">
             <div className="absolute -top-px left-10 right-14 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/55 to-transparent" />
 
             <div className="flex items-center justify-between mb-6">
@@ -289,9 +291,11 @@ export const WalletIntelligenceView: React.FC<WalletIntelligenceViewProps> = ({
               </div>
             </div>
           </div>
+        </Reveal>
 
-          {/* Transaction Activity Histogram Card */}
-          <div className="mind-luxury-card rounded-3xl p-6 sm:p-7 relative overflow-hidden flex flex-col justify-between">
+        {/* Transaction Activity Histogram Card */}
+        <Reveal animation="fade-up" delayMs={100} durationMs={550} className="h-full">
+          <div className="mind-luxury-card rounded-3xl p-6 sm:p-7 relative overflow-hidden flex flex-col justify-between h-full">
             <div className="absolute -top-px left-10 right-14 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/55 to-transparent" />
 
             <div className="flex items-center justify-between mb-4">
@@ -343,12 +347,14 @@ export const WalletIntelligenceView: React.FC<WalletIntelligenceViewProps> = ({
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
+      </div>
       )}
 
       {/* Full Token Holdings Table (Shown on Overview & Tokens tabs) */}
       {(activeTab === 'overview' || activeTab === 'tokens') && (
-        <div className="mind-luxury-card rounded-3xl overflow-hidden relative">
+        <Reveal animation="fade-up" delayMs={140} durationMs={550}>
+          <div className="mind-luxury-card rounded-3xl overflow-hidden relative">
           <div className="p-6 border-b border-white/[0.07] flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <Coins className="w-4 h-4 text-[#E7C45D]" />
@@ -426,61 +432,65 @@ export const WalletIntelligenceView: React.FC<WalletIntelligenceViewProps> = ({
             </div>
           )}
         </div>
+      </Reveal>
       )}
 
       {/* Behavioral Patterns View (Shown on Patterns tab) */}
       {activeTab === 'patterns' && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="mind-luxury-card rounded-3xl p-6 space-y-3 relative overflow-hidden">
-            <div className="w-10 h-10 rounded-xl bg-[#211B0E] border border-[#D4AF37]/35 text-[#E7C45D] flex items-center justify-center">
-              <Layers className="w-4 h-4" />
+        <Reveal animation="fade-up" delayMs={60} durationMs={550}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="mind-luxury-card rounded-3xl p-6 space-y-3 relative overflow-hidden">
+              <div className="w-10 h-10 rounded-xl bg-[#211B0E] border border-[#D4AF37]/35 text-[#E7C45D] flex items-center justify-center">
+                <Layers className="w-4 h-4" />
+              </div>
+              <h3 className="text-sm font-semibold text-white font-sora">Asset Concentration</h3>
+              <p className="text-2xl font-bold font-sora text-[#F8E296]">
+                {patternSummary.topAsset
+                  ? `${patternSummary.topAsset.percentageOfPortfolio}% ${patternSummary.topAsset.coinSymbol}`
+                  : '0%'}
+              </p>
+              <p className="text-xs text-[#8E939E] leading-relaxed">
+                {patternSummary.topAsset
+                  ? `Your largest position is ${patternSummary.topAsset.coinSymbol} valued at ${formatUsd(patternSummary.topAsset.usdValue)} across ${balances.length} total token${balances.length === 1 ? '' : 's'}.`
+                  : 'Connect a funded Sui wallet to evaluate portfolio concentration.'}
+              </p>
             </div>
-            <h3 className="text-sm font-semibold text-white font-sora">Asset Concentration</h3>
-            <p className="text-2xl font-bold font-sora text-[#F8E296]">
-              {patternSummary.topAsset
-                ? `${patternSummary.topAsset.percentageOfPortfolio}% ${patternSummary.topAsset.coinSymbol}`
-                : '0%'}
-            </p>
-            <p className="text-xs text-[#8E939E] leading-relaxed">
-              {patternSummary.topAsset
-                ? `Your largest position is ${patternSummary.topAsset.coinSymbol} valued at ${formatUsd(patternSummary.topAsset.usdValue)} across ${balances.length} total token${balances.length === 1 ? '' : 's'}.`
-                : 'Connect a funded Sui wallet to evaluate portfolio concentration.'}
-            </p>
-          </div>
 
-          <div className="mind-luxury-card rounded-3xl p-6 space-y-3 relative overflow-hidden">
-            <div className="w-10 h-10 rounded-xl bg-[#211B0E] border border-[#D4AF37]/35 text-[#E7C45D] flex items-center justify-center">
-              <Shield className="w-4 h-4" />
+            <div className="mind-luxury-card rounded-3xl p-6 space-y-3 relative overflow-hidden">
+              <div className="w-10 h-10 rounded-xl bg-[#211B0E] border border-[#D4AF37]/35 text-[#E7C45D] flex items-center justify-center">
+                <Shield className="w-4 h-4" />
+              </div>
+              <h3 className="text-sm font-semibold text-white font-sora">Stable Liquidity Buffer</h3>
+              <p className="text-2xl font-bold font-sora text-white">
+                {patternSummary.stableRatio}%
+              </p>
+              <p className="text-xs text-[#8E939E] leading-relaxed">
+                {formatUsd(connected && walletData ? walletData.stableReserveUsd : 0)} held in liquid USD stablecoins (USDC / USDT / AUSD / FDUSD) on Sui Mainnet.
+              </p>
             </div>
-            <h3 className="text-sm font-semibold text-white font-sora">Stable Liquidity Buffer</h3>
-            <p className="text-2xl font-bold font-sora text-white">
-              {patternSummary.stableRatio}%
-            </p>
-            <p className="text-xs text-[#8E939E] leading-relaxed">
-              {formatUsd(connected && walletData ? walletData.stableReserveUsd : 0)} held in liquid USD stablecoins (USDC / USDT / AUSD / FDUSD) on Sui Mainnet.
-            </p>
-          </div>
 
-          <div className="mind-luxury-card rounded-3xl p-6 space-y-3 relative overflow-hidden">
-            <div className="w-10 h-10 rounded-xl bg-[#211B0E] border border-[#D4AF37]/35 text-[#E7C45D] flex items-center justify-center">
-              <Activity className="w-4 h-4" />
+            <div className="mind-luxury-card rounded-3xl p-6 space-y-3 relative overflow-hidden">
+              <div className="w-10 h-10 rounded-xl bg-[#211B0E] border border-[#D4AF37]/35 text-[#E7C45D] flex items-center justify-center">
+                <Activity className="w-4 h-4" />
+              </div>
+              <h3 className="text-sm font-semibold text-white font-sora">Execution Mix</h3>
+              <p className="text-2xl font-bold font-sora text-white">
+                {transactions.length} Blocks
+              </p>
+              <p className="text-xs text-[#8E939E] leading-relaxed">
+                {patternSummary.receivedCount} inflows, {patternSummary.sentCount} outflows, and{' '}
+                {patternSummary.swapOrContractCount} swaps or Move contract calls. Outflows are never guessed as merchant spending without user context.
+              </p>
             </div>
-            <h3 className="text-sm font-semibold text-white font-sora">Execution Mix</h3>
-            <p className="text-2xl font-bold font-sora text-white">
-              {transactions.length} Blocks
-            </p>
-            <p className="text-xs text-[#8E939E] leading-relaxed">
-              {patternSummary.receivedCount} inflows, {patternSummary.sentCount} outflows, and{' '}
-              {patternSummary.swapOrContractCount} swaps or Move contract calls. Outflows are never guessed as merchant spending without user context.
-            </p>
           </div>
-        </div>
+        </Reveal>
       )}
 
       {/* Recent Verified Transactions Table with Pagination & Semantic Notes */}
       {(activeTab === 'overview' || activeTab === 'transactions') && (
-        <div className="mind-luxury-card rounded-3xl overflow-hidden relative">
-          <div className="absolute -top-px left-10 right-14 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/50 to-transparent" />
+        <Reveal animation="fade-up" delayMs={160} durationMs={550}>
+          <div className="mind-luxury-card rounded-3xl overflow-hidden relative">
+            <div className="absolute -top-px left-10 right-14 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/50 to-transparent" />
 
           <div className="p-6 border-b border-white/[0.07] flex flex-wrap items-center justify-between gap-3">
             <div>
@@ -605,6 +615,7 @@ export const WalletIntelligenceView: React.FC<WalletIntelligenceViewProps> = ({
             </>
           )}
         </div>
+      </Reveal>
       )}
     </div>
   );
