@@ -119,9 +119,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             <a href="#replay-preview" className="hover:text-[#F5F5F5] transition-colors">
               Memory Replay
             </a>
-            <a href="/film" className="hover:text-[#E7C45D] transition-colors">
-              Launch Film
-            </a>
             <a href="#faq" className="hover:text-[#F5F5F5] transition-colors">
               FAQ
             </a>
@@ -182,13 +179,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               Memory Replay
             </a>
             <a
-              href="/film"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-[#E7C45D] py-1.5"
-            >
-              Launch Film
-            </a>
-            <a
               href="#faq"
               onClick={() => setMobileMenuOpen(false)}
               className="hover:text-white py-1.5"
@@ -208,7 +198,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
          ===================================================================== */}
       <section
         id="hero"
-        className={`relative w-full min-h-[680px] lg:min-h-[760px] xl:min-h-[810px] flex items-center overflow-hidden pt-20 md:pt-22 transition-colors duration-200 ${
+        className={`relative w-full min-h-[640px] lg:min-h-[760px] xl:min-h-[810px] flex items-center overflow-hidden pt-20 md:pt-22 transition-colors duration-200 ${
           isLight ? 'bg-[#FAF9F5]' : 'bg-[#080808]'
         }`}
       >
@@ -297,10 +287,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         </div>
 
         {/* FOREGROUND CONTENT CONTAINER */}
-        <div className="relative z-20 max-w-7xl mx-auto w-full px-6 md:px-14 lg:px-16 pt-10 pb-16 lg:py-20 pointer-events-none">
-          <div className="max-w-xl lg:max-w-[540px] text-left space-y-6 pointer-events-auto">
+        <div className="relative z-20 max-w-7xl mx-auto w-full px-5 sm:px-8 md:px-14 lg:px-16 pt-6 sm:pt-10 pb-12 sm:pb-16 lg:py-20 pointer-events-none">
+          <div className="max-w-xl lg:max-w-[540px] text-left space-y-5 sm:space-y-6 pointer-events-auto">
             <Reveal animation="fade-up" delayMs={40}>
-              <p className="text-sm md:text-[15px] font-medium tracking-wide">
+              <p className="text-xs sm:text-sm md:text-[15px] font-medium tracking-wide">
                 <span className={isLight ? 'text-[#946F14] font-semibold' : 'text-[#E7C45D] font-semibold'}>
                   Smarter
                 </span>{' '}
@@ -310,7 +300,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
             <Reveal animation="fade-up" delayMs={120}>
               <h1
-                className={`text-4xl sm:text-5xl lg:text-[58px] font-sora font-bold tracking-[-0.03em] leading-[1.08] ${
+                className={`text-3xl sm:text-5xl lg:text-[58px] font-sora font-bold tracking-[-0.03em] leading-[1.12] sm:leading-[1.08] ${
                   isLight ? 'text-[#111827]' : 'text-[#F7F7F5]'
                 }`}
               >
@@ -324,7 +314,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
             <Reveal animation="fade-up" delayMs={200}>
               <p
-                className={`text-[15px] sm:text-base lg:text-[17px] font-inter leading-[1.65] max-w-[490px] ${
+                className={`text-sm sm:text-base lg:text-[17px] font-inter leading-[1.65] max-w-[490px] ${
                   isLight ? 'text-[#4B5563]' : 'text-[#9CA3AF]'
                 }`}
               >
@@ -333,10 +323,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             </Reveal>
 
             <Reveal animation="fade-up" delayMs={280}>
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-2">
                 <button
                   onClick={onLaunchApp}
-                  className="btn-gold-primary inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full font-semibold text-sm cursor-pointer"
+                  className="btn-gold-primary inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 rounded-full font-semibold text-sm cursor-pointer w-full sm:w-auto"
                 >
                   <span>Get Started</span>
                   <ArrowRight className="w-4 h-4 stroke-[2.2]" />
@@ -344,22 +334,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
                 <a
                   href="#features"
-                  className={`btn-gold-secondary inline-flex items-center justify-center px-8 py-3.5 rounded-full font-medium text-sm ${
+                  className={`btn-gold-secondary inline-flex items-center justify-center px-7 sm:px-8 py-3.5 rounded-full font-medium text-sm w-full sm:w-auto ${
                     isLight ? 'text-[#111827]' : 'text-[#F5F5F5]'
                   }`}
                 >
                   Learn More
-                </a>
-
-                <a
-                  href="/film"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full font-medium text-sm text-[#E7C45D] hover:text-[#FFF0B3] transition-colors"
-                >
-                  <span className="relative flex w-7 h-7 items-center justify-center rounded-full border border-[#D4AF37]/60">
-                    <span className="absolute inset-0 rounded-full border border-[#D4AF37]/40 animate-ping" />
-                    <span className="ml-0.5 w-0 h-0 border-y-[5px] border-y-transparent border-l-[8px] border-l-[#E7C45D]" />
-                  </span>
-                  Watch the film
                 </a>
               </div>
             </Reveal>
@@ -367,7 +346,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             {/* MOBILE / TABLET SEAMLESS LAPTOP STAGE */}
             <div
               onClick={onLaunchApp}
-              className="lg:hidden relative -mx-6 sm:-mx-10 pt-4 pb-6 cursor-pointer"
+              className="lg:hidden relative -mx-4 sm:-mx-8 pt-3 pb-4 cursor-pointer"
             >
               <div className="relative w-full">
                 <Image
@@ -376,14 +355,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   loading="eager"
                   quality={92}
                   sizes="100vw"
-                  className="w-full h-auto object-contain hero-scene-mask scale-110 sm:scale-105"
+                  className="w-full h-auto object-contain hero-scene-mask scale-[1.02] sm:scale-105"
                 />
-                <div className="gold-glass-plaque absolute bottom-2 right-6 sm:right-10 px-4 py-3 rounded-xl max-w-[230px]">
+                <div className="gold-glass-plaque absolute bottom-2 right-4 sm:right-8 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl max-w-[210px] sm:max-w-[230px]">
                   <div className="flex items-center justify-between mb-1">
                     <MindLogo size="sm" />
                     <Sparkles className="w-3 h-3 text-[#E7C45D]/80" />
                   </div>
-                  <p className={`text-[11px] leading-snug ${isLight ? 'text-[#374151]' : 'text-[#D1D5DB]'}`}>
+                  <p className={`text-[10px] sm:text-[11px] leading-snug ${isLight ? 'text-[#374151]' : 'text-[#D1D5DB]'}`}>
                     Your goals, your money,{' '}
                     <span className={isLight ? 'text-[#946F14] font-semibold' : 'text-[#F5E6B8]'}>
                       our focus.
@@ -395,50 +374,50 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
             {/* 3 Proof Columns */}
             <Reveal animation="fade-up" delayMs={360}>
-              <div className="pt-8 lg:pt-12 grid grid-cols-3 gap-4 sm:gap-7 max-w-[500px]">
-                <div className="space-y-1">
+              <div className="pt-4 sm:pt-8 lg:pt-12 grid grid-cols-3 gap-2.5 sm:gap-6 max-w-[500px]">
+                <div className="space-y-0.5 sm:space-y-1">
                   <span
-                    className={`text-xs sm:text-[13px] font-semibold block tracking-[-0.01em] ${
+                    className={`text-[11px] sm:text-xs md:text-[13px] font-semibold block tracking-[-0.01em] leading-tight ${
                       isLight ? 'text-[#111827]' : 'text-[#F5F5F5]'
                     }`}
                   >
-                    Real Onchain Data
+                    Real Onchain
                   </span>
-                  <span className={`text-[11px] sm:text-xs block ${isLight ? 'text-[#6B7280]' : 'text-[#8E939E]'}`}>
+                  <span className={`text-[10px] sm:text-xs block ${isLight ? 'text-[#6B7280]' : 'text-[#8E939E]'}`}>
                     via Tatum
                   </span>
                 </div>
 
                 <div
-                  className={`space-y-1 border-l pl-4 sm:pl-6 ${
+                  className={`space-y-0.5 sm:space-y-1 border-l pl-2.5 sm:pl-5 ${
                     isLight ? 'border-black/[0.12]' : 'border-white/[0.12]'
                   }`}
                 >
                   <span
-                    className={`text-xs sm:text-[13px] font-semibold block tracking-[-0.01em] ${
+                    className={`text-[11px] sm:text-xs md:text-[13px] font-semibold block tracking-[-0.01em] leading-tight ${
                       isLight ? 'text-[#111827]' : 'text-[#F5F5F5]'
                     }`}
                   >
                     Persistent Memory
                   </span>
-                  <span className={`text-[11px] sm:text-xs block ${isLight ? 'text-[#6B7280]' : 'text-[#8E939E]'}`}>
+                  <span className={`text-[10px] sm:text-xs block ${isLight ? 'text-[#6B7280]' : 'text-[#8E939E]'}`}>
                     via Walrus
                   </span>
                 </div>
 
                 <div
-                  className={`space-y-1 border-l pl-4 sm:pl-6 ${
+                  className={`space-y-0.5 sm:space-y-1 border-l pl-2.5 sm:pl-5 ${
                     isLight ? 'border-black/[0.12]' : 'border-white/[0.12]'
                   }`}
                 >
                   <span
-                    className={`text-xs sm:text-[13px] font-semibold block tracking-[-0.01em] ${
+                    className={`text-[11px] sm:text-xs md:text-[13px] font-semibold block tracking-[-0.01em] leading-tight ${
                       isLight ? 'text-[#111827]' : 'text-[#F5F5F5]'
                     }`}
                   >
-                    Smarter Decisions
+                    Smart Decisions
                   </span>
-                  <span className={`text-[11px] sm:text-xs block ${isLight ? 'text-[#6B7280]' : 'text-[#8E939E]'}`}>
+                  <span className={`text-[10px] sm:text-xs block ${isLight ? 'text-[#6B7280]' : 'text-[#8E939E]'}`}>
                     Every Session
                   </span>
                 </div>
@@ -453,26 +432,26 @@ export const LandingPage: React.FC<LandingPageProps> = ({
          ===================================================================== */}
       <section
         id="how-it-works"
-        className="py-24 px-6 md:px-14 lg:px-16 max-w-7xl mx-auto w-full text-left relative"
+        className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 md:px-14 lg:px-16 max-w-7xl mx-auto w-full text-left relative"
       >
         {/* Specular Golden Horizon Section Divider */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[75%] h-px bg-gradient-to-r from-transparent via-[#D4AF37]/35 to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[38%] h-12 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.12)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%] h-px bg-gradient-to-r from-transparent via-[#D4AF37]/35 to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[45%] sm:w-[38%] h-12 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.12)_0%,transparent_70%)] pointer-events-none" />
 
         <Reveal animation="fade-up">
-          <div className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="mb-10 sm:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#17140D] border border-[#D4AF37]/30 text-[11px] font-mono uppercase tracking-[0.16em] text-[#E7C45D]">
                 <Sparkles className="w-3 h-3" />
                 <span>How Mind Operates</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-sora font-bold text-white mt-3.5 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-sora font-bold text-white mt-3 sm:mt-3.5 tracking-tight">
                 The Continuous{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E2BE52] via-[#F7DF94] to-[#C99E2C]">
                   Intelligence Loop
                 </span>
               </h2>
-              <p className="text-sm md:text-[15px] text-[#9CA3AF] mt-3 leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-[15px] text-[#9CA3AF] mt-2.5 sm:mt-3 leading-relaxed">
                 Traditional wallets show static numbers. Generic AI chats forget your goals the moment you close the tab. Mind bridges live chain state with permanent user memory.
               </p>
             </div>
@@ -483,28 +462,28 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           {/* Subtle Horizontal Golden Stream Line Connecting the 4 Cards on Desktop */}
           <div className="hidden lg:block absolute top-1/2 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/25 to-transparent -translate-y-1/2 pointer-events-none" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative z-10">
             {loopSteps.map((item, idx) => {
               const StepIcon = item.icon;
               return (
                 <Reveal key={item.num} animation="pop" delayMs={idx * 110}>
-                  <div className="mind-luxury-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden group h-full">
+                  <div className="mind-luxury-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 flex flex-col justify-between relative overflow-hidden group h-full">
                     {/* Top Specular Champagne-Gold Hairline */}
                     <div className="absolute -top-px left-7 right-7 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/65 to-transparent" />
                     <div className="absolute -top-16 -right-16 w-36 h-36 bg-[radial-gradient(circle,rgba(212,175,55,0.14)_0%,transparent_70%)] opacity-60 group-hover:opacity-100 transition-opacity pointer-events-none" />
 
-                    <div className="space-y-4 relative z-10">
+                    <div className="space-y-3.5 sm:space-y-4 relative z-10">
                       <div className="flex items-center justify-between">
-                        <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#231D10] to-[#110F0A] border border-[#D4AF37]/40 shadow-[inset_0_1px_0_rgba(255,240,185,0.25)] flex items-center justify-center text-[#E7C45D] group-hover:scale-105 transition-transform">
-                          <StepIcon className="w-5 h-5" />
+                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-[#231D10] to-[#110F0A] border border-[#D4AF37]/40 shadow-[inset_0_1px_0_rgba(255,240,185,0.25)] flex items-center justify-center text-[#E7C45D] group-hover:scale-105 transition-transform">
+                          <StepIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
                         <span className="px-2.5 py-1 rounded-full bg-[#15130D] border border-[#D4AF37]/25 font-mono text-[10px] tracking-[0.14em] text-[#F5D76E]">
                           {item.num} • {item.phase}
                         </span>
                       </div>
 
-                      <div className="space-y-2 pt-1">
-                        <h3 className="text-lg font-semibold text-white font-sora tracking-tight group-hover:text-[#F8E296] transition-colors">
+                      <div className="space-y-1.5 sm:space-y-2 pt-1">
+                        <h3 className="text-base sm:text-lg font-semibold text-white font-sora tracking-tight group-hover:text-[#F8E296] transition-colors">
                           {item.title}
                         </h3>
                         <p className="text-xs sm:text-[13px] text-[#9CA3AF] leading-relaxed">
@@ -513,7 +492,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                       </div>
                     </div>
 
-                    <div className="pt-4 mt-6 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-[#8E939E] relative z-10">
+                    <div className="pt-3.5 sm:pt-4 mt-5 sm:mt-6 border-t border-white/[0.06] flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-[#8E939E] relative z-10">
                       <span className="truncate">{item.tag}</span>
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E7C45D]/70 shrink-0" />
                     </div>
@@ -530,18 +509,18 @@ export const LandingPage: React.FC<LandingPageProps> = ({
          ===================================================================== */}
       <section
         id="features"
-        className="py-24 px-6 md:px-14 lg:px-16 max-w-7xl mx-auto w-full text-left relative"
+        className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 md:px-14 lg:px-16 max-w-7xl mx-auto w-full text-left relative"
       >
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[75%] h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%] h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
 
         <Reveal animation="fade-up">
-          <div className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="mb-10 sm:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#17140D] border border-[#D4AF37]/30 text-[11px] font-mono uppercase tracking-[0.16em] text-[#E7C45D]">
                 <Activity className="w-3 h-3" />
                 <span>Core Capabilities</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-sora font-bold text-white mt-3.5 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-sora font-bold text-white mt-3 sm:mt-3.5 tracking-tight">
                 Everything for Your{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E2BE52] via-[#F7DF94] to-[#C99E2C]">
                   Sui Portfolio
@@ -559,27 +538,27 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
           {/* FEATURE CARD 1: WALLET INTELLIGENCE */}
           <Reveal animation="fade-up" delayMs={60}>
             <div
               onClick={() => onExploreFeatures('wallet')}
-              className="mind-luxury-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between cursor-pointer relative overflow-hidden group h-full"
+              className="mind-luxury-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 flex flex-col justify-between cursor-pointer relative overflow-hidden group h-full"
             >
               <div className="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/70 to-transparent" />
               <div className="absolute -bottom-20 -right-20 w-52 h-52 bg-[radial-gradient(circle,rgba(212,175,55,0.12)_0%,transparent_70%)] pointer-events-none" />
 
               <div>
                 {/* Mini Smoked-Glass UI Preview Matching Screen 3 */}
-                <div className="rounded-2xl bg-[#0B0B0B]/95 border border-white/[0.07] group-hover:border-[#D4AF37]/30 p-4 mb-6 transition-colors">
+                <div className="rounded-2xl bg-[#0B0B0B]/95 border border-white/[0.07] group-hover:border-[#D4AF37]/30 p-3.5 sm:p-4 mb-5 sm:mb-6 transition-colors">
                   <div className="flex items-center justify-between text-[10px] font-mono text-[#8E939E] mb-3">
                     <span>TOKEN &amp; FLOW METRICS</span>
                     <span className="text-[#E7C45D]">7D • 30D • 90D</span>
                   </div>
-                  <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center justify-between gap-3 sm:gap-4">
                     {/* Mini Donut SVG */}
-                    <div className="flex items-center gap-3">
-                      <svg className="w-12 h-12 -rotate-90 shrink-0" viewBox="0 0 36 36">
+                    <div className="flex items-center gap-2.5 sm:gap-3">
+                      <svg className="w-11 h-11 sm:w-12 sm:h-12 -rotate-90 shrink-0" viewBox="0 0 36 36">
                         <circle cx="18" cy="18" r="14" fill="none" stroke="#1F1F1F" strokeWidth="4.5" />
                         <circle
                           cx="18"
@@ -601,7 +580,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                           strokeDashoffset="-52"
                         />
                       </svg>
-                      <div className="space-y-1 text-[11px]">
+                      <div className="space-y-1 text-[10px] sm:text-[11px]">
                         <div className="flex items-center gap-1.5 text-white font-medium">
                           <span className="w-2 h-2 rounded-full bg-[#E7C45D]" />
                           <span>SUI 52%</span>
@@ -614,12 +593,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                     </div>
 
                     {/* Mini Golden Activity Bars */}
-                    <div className="flex items-end gap-1.5 h-11 pr-1">
+                    <div className="flex items-end gap-1.5 h-10 sm:h-11 pr-1">
                       {[38, 65, 48, 86, 58, 95, 72].map((h, i) => (
                         <div
                           key={i}
                           style={{ height: `${h}%` }}
-                          className="w-2 rounded-full bg-gradient-to-t from-[#8C6D14] via-[#D4AF37] to-[#FFF0B3]"
+                          className="w-1.5 sm:w-2 rounded-full bg-gradient-to-t from-[#8C6D14] via-[#D4AF37] to-[#FFF0B3]"
                         />
                       ))}
                     </div>
@@ -627,10 +606,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 </div>
 
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#231D10] to-[#110F0A] border border-[#D4AF37]/40 flex items-center justify-center text-[#E7C45D]">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#231D10] to-[#110F0A] border border-[#D4AF37]/40 flex items-center justify-center text-[#E7C45D]">
                     <Activity className="w-4 h-4" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white font-sora group-hover:text-[#F8E296] transition-colors">
+                  <h3 className="text-lg sm:text-xl font-semibold text-white font-sora group-hover:text-[#F8E296] transition-colors">
                     Wallet Intelligence
                   </h3>
                 </div>
@@ -640,7 +619,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 </p>
               </div>
 
-              <div className="pt-5 mt-6 border-t border-white/[0.06] flex items-center justify-between text-xs font-semibold text-[#E7C45D]">
+              <div className="pt-4 sm:pt-5 mt-5 sm:mt-6 border-t border-white/[0.06] flex items-center justify-between text-xs font-semibold text-[#E7C45D]">
                 <span>Explore Wallet Analytics</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -651,14 +630,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           <Reveal animation="fade-up" delayMs={160}>
             <div
               onClick={() => onExploreFeatures('ask')}
-              className="mind-luxury-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between cursor-pointer relative overflow-hidden group h-full"
+              className="mind-luxury-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 flex flex-col justify-between cursor-pointer relative overflow-hidden group h-full"
             >
               <div className="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/70 to-transparent" />
               <div className="absolute -bottom-20 -right-20 w-52 h-52 bg-[radial-gradient(circle,rgba(212,175,55,0.12)_0%,transparent_70%)] pointer-events-none" />
 
               <div>
                 {/* Mini Smoked-Glass UI Preview Matching Screen 4 */}
-                <div className="rounded-2xl bg-[#0B0B0B]/95 border border-white/[0.07] group-hover:border-[#D4AF37]/30 p-4 mb-6 space-y-2.5 transition-colors">
+                <div className="rounded-2xl bg-[#0B0B0B]/95 border border-white/[0.07] group-hover:border-[#D4AF37]/30 p-3.5 sm:p-4 mb-5 sm:mb-6 space-y-2.5 transition-colors">
                   <div className="flex justify-end">
                     <span className="px-2.5 py-1 rounded-xl bg-white/[0.06] text-[10px] text-[#E5E7EB]">
                       Take profit on SUI or keep holding?
@@ -669,7 +648,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                       <Sparkles className="w-3 h-3 text-[#E7C45D]" />
                       <span>Lock 30–50% gains into USDC reserve</span>
                     </div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5 flex-wrap">
                       <span className="px-2 py-0.5 rounded-full bg-[#D4AF37]/15 text-[9px] text-[#E7C45D]">
                         Savings goal
                       </span>
@@ -681,10 +660,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 </div>
 
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#231D10] to-[#110F0A] border border-[#D4AF37]/40 flex items-center justify-center text-[#E7C45D]">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#231D10] to-[#110F0A] border border-[#D4AF37]/40 flex items-center justify-center text-[#E7C45D]">
                     <Brain className="w-4 h-4" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white font-sora group-hover:text-[#F8E296] transition-colors">
+                  <h3 className="text-lg sm:text-xl font-semibold text-white font-sora group-hover:text-[#F8E296] transition-colors">
                     Ask Mind AI
                   </h3>
                 </div>
@@ -694,7 +673,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 </p>
               </div>
 
-              <div className="pt-5 mt-6 border-t border-white/[0.06] flex items-center justify-between text-xs font-semibold text-[#E7C45D]">
+              <div className="pt-4 sm:pt-5 mt-5 sm:mt-6 border-t border-white/[0.06] flex items-center justify-between text-xs font-semibold text-[#E7C45D]">
                 <span>Ask Mind a Question</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -705,14 +684,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           <Reveal animation="fade-up" delayMs={260}>
             <div
               onClick={() => onExploreFeatures('replay')}
-              className="mind-luxury-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between cursor-pointer relative overflow-hidden group h-full"
+              className="mind-luxury-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 flex flex-col justify-between cursor-pointer relative overflow-hidden group h-full md:col-span-2 lg:col-span-1"
             >
               <div className="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/70 to-transparent" />
               <div className="absolute -bottom-20 -right-20 w-52 h-52 bg-[radial-gradient(circle,rgba(212,175,55,0.12)_0%,transparent_70%)] pointer-events-none" />
 
               <div>
                 {/* Mini Smoked-Glass UI Preview Matching Screen 6 */}
-                <div className="rounded-2xl bg-[#0B0B0B]/95 border border-white/[0.07] group-hover:border-[#D4AF37]/30 p-4 mb-6 transition-colors">
+                <div className="rounded-2xl bg-[#0B0B0B]/95 border border-white/[0.07] group-hover:border-[#D4AF37]/30 p-3.5 sm:p-4 mb-5 sm:mb-6 transition-colors">
                   <div className="flex items-center justify-between text-[10px] font-mono text-[#8E939E] mb-2.5">
                     <span>CONTROLLED SNAPSHOT</span>
                     <span className="text-[#2CCD9A]">A/B VERIFIED</span>
@@ -734,10 +713,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 </div>
 
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#231D10] to-[#110F0A] border border-[#D4AF37]/40 flex items-center justify-center text-[#E7C45D]">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#231D10] to-[#110F0A] border border-[#D4AF37]/40 flex items-center justify-center text-[#E7C45D]">
                     <History className="w-4 h-4" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white font-sora group-hover:text-[#F8E296] transition-colors">
+                  <h3 className="text-lg sm:text-xl font-semibold text-white font-sora group-hover:text-[#F8E296] transition-colors">
                     Memory Replay
                   </h3>
                 </div>
@@ -747,7 +726,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 </p>
               </div>
 
-              <div className="pt-5 mt-6 border-t border-white/[0.06] flex items-center justify-between text-xs font-semibold text-[#E7C45D]">
+              <div className="pt-4 sm:pt-5 mt-5 sm:mt-6 border-t border-white/[0.06] flex items-center justify-between text-xs font-semibold text-[#E7C45D]">
                 <span>Launch Replay Comparison</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -761,16 +740,16 @@ export const LandingPage: React.FC<LandingPageProps> = ({
          ===================================================================== */}
       <section
         id="replay-preview"
-        className="py-24 px-6 md:px-14 lg:px-16 max-w-7xl mx-auto w-full text-left relative"
+        className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 md:px-14 lg:px-16 max-w-7xl mx-auto w-full text-left relative"
       >
         <Reveal animation="zoom-in" durationMs={800}>
-          <div className="gold-glass-plaque rounded-[32px] p-7 sm:p-10 md:p-14 relative overflow-hidden">
-            <div className="absolute -top-px left-14 right-14 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/85 to-transparent" />
+          <div className="gold-glass-plaque rounded-2xl sm:rounded-[32px] p-5 sm:p-10 md:p-14 relative overflow-hidden">
+            <div className="absolute -top-px left-8 sm:left-14 right-8 sm:right-14 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/85 to-transparent" />
             <div className="absolute -top-32 -right-24 w-[480px] h-[480px] bg-[radial-gradient(circle,rgba(212,175,55,0.18)_0%,transparent_70%)] blur-3xl pointer-events-none" />
             <div className="absolute -bottom-32 -left-24 w-[420px] h-[420px] bg-[radial-gradient(circle,rgba(212,175,55,0.10)_0%,transparent_70%)] blur-3xl pointer-events-none" />
 
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 relative z-10">
-              <div className="max-w-2xl space-y-2.5">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 sm:gap-6 mb-8 sm:mb-10 relative z-10">
+              <div className="max-w-2xl space-y-2 sm:space-y-2.5">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1C170B] border border-[#D4AF37]/35 text-[11px] font-mono uppercase tracking-[0.16em] text-[#F8E296]">
                   <Sparkles className="w-3 h-3" />
                   <span>The Total Recall Differentiator</span>
@@ -785,7 +764,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
               <button
                 onClick={() => onExploreFeatures('replay')}
-                className="btn-gold-primary px-7 py-3.5 rounded-full font-semibold text-xs sm:text-sm inline-flex items-center gap-2 self-start lg:self-auto shrink-0 cursor-pointer"
+                className="btn-gold-primary px-6 sm:px-7 py-3 sm:py-3.5 rounded-full font-semibold text-xs sm:text-sm inline-flex items-center justify-center gap-2 w-full sm:w-auto self-start lg:self-auto shrink-0 cursor-pointer"
               >
                 <span>Run Live Replay</span>
                 <ArrowRight className="w-4 h-4" />
@@ -793,26 +772,26 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             </div>
 
             {/* Prompt Context Bar (Matching Screen 6 in Reference Sheet) */}
-            <div className="mb-6 p-3.5 sm:px-5 rounded-2xl bg-[#0B0B0B]/90 border border-white/[0.08] flex flex-wrap items-center justify-between gap-3 relative z-10">
-              <div className="flex items-center gap-3 text-xs sm:text-sm">
-                <span className="text-[#8E939E] font-mono text-[11px] uppercase tracking-wider">
+            <div className="mb-5 sm:mb-6 p-3 sm:p-3.5 sm:px-5 rounded-xl sm:rounded-2xl bg-[#0B0B0B]/90 border border-white/[0.08] flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 relative z-10">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+                <span className="text-[#8E939E] font-mono text-[10px] sm:text-[11px] uppercase tracking-wider">
                   Selected Analysis:
                 </span>
                 <span className="text-white font-medium">
                   &ldquo;Should I keep holding SUI or take some profit?&rdquo;
                 </span>
               </div>
-              <span className="text-[11px] font-mono text-[#E7C45D]">
+              <span className="text-[10px] sm:text-[11px] font-mono text-[#E7C45D]">
                 Snapshot • Sui Mainnet RPC
               </span>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 relative z-10">
               {/* Baseline Generic Card */}
               <Reveal animation="slide-left" delayMs={100} durationMs={650}>
-                <div className="p-6 sm:p-7 rounded-2xl bg-[#0E0E0E]/95 border border-white/[0.08] flex flex-col justify-between space-y-5 h-full">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between gap-2">
+                <div className="p-5 sm:p-7 rounded-xl sm:rounded-2xl bg-[#0E0E0E]/95 border border-white/[0.08] flex flex-col justify-between space-y-4 sm:space-y-5 h-full">
+                  <div className="space-y-3.5 sm:space-y-4">
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
                       <span className="text-xs font-semibold text-[#D1D5DB] flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#6B7280]" />
                         Without Remembered Context
@@ -827,7 +806,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-white/[0.06] space-y-1.5 text-xs text-[#6B7280]">
+                  <div className="pt-3.5 sm:pt-4 border-t border-white/[0.06] space-y-1.5 text-[11px] sm:text-xs text-[#6B7280]">
                     <p>• Sees positive price momentum &amp; onchain volume</p>
                     <p>• Blind to your $5,000 emergency reserve &amp; 20% profit rule</p>
                   </div>
@@ -836,10 +815,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
               {/* Personalized Walrus Context Card */}
               <Reveal animation="slide-right" delayMs={200} durationMs={650}>
-                <div className="relative overflow-hidden p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-[#231D0E] via-[#15120A] to-[#0E0D09] border border-[#D4AF37]/55 shadow-[inset_0_1px_0_rgba(255,240,185,0.28),0_0_40px_-10px_rgba(212,175,55,0.25)] flex flex-col justify-between space-y-5 h-full">
+                <div className="relative overflow-hidden p-5 sm:p-7 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#231D0E] via-[#15120A] to-[#0E0D09] border border-[#D4AF37]/55 shadow-[inset_0_1px_0_rgba(255,240,185,0.28),0_0_40px_-10px_rgba(212,175,55,0.25)] flex flex-col justify-between space-y-4 sm:space-y-5 h-full">
                   <div className="animate-laser-sweep pointer-events-none opacity-30" />
-                  <div className="space-y-4 relative z-10">
-                    <div className="flex items-center justify-between gap-2">
+                  <div className="space-y-3.5 sm:space-y-4 relative z-10">
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
                       <span className="text-xs font-semibold text-[#FFF0B3] flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#E7C45D] shadow-[0_0_8px_#E7C45D] animate-pulse-ring" />
                         With Remembered Context
@@ -854,19 +833,19 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-[#D4AF37]/25 space-y-3 relative z-10">
+                  <div className="pt-3.5 sm:pt-4 border-t border-[#D4AF37]/25 space-y-2.5 sm:space-y-3 relative z-10">
                     <div className="flex items-center gap-2 text-xs text-[#E5E7EB]">
                       <Check className="w-3.5 h-3.5 text-[#E7C45D] shrink-0" />
                       <span>Aligns directly with your recalled Walrus memories:</span>
                     </div>
-                    <div className="flex flex-wrap items-center gap-2 text-[11px] text-[#F8E296]">
-                      <span className="px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35">
+                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-[#F8E296]">
+                      <span className="px-2.5 sm:px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35">
                         Savings goal ($5,000)
                       </span>
-                      <span className="px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35">
+                      <span className="px-2.5 sm:px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35">
                         Risk preference
                       </span>
-                      <span className="px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35">
+                      <span className="px-2.5 sm:px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35">
                         Past swap outcome
                       </span>
                     </div>
@@ -883,20 +862,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({
          ===================================================================== */}
       <section
         id="faq"
-        className="py-24 px-6 md:px-14 lg:px-16 max-w-4xl mx-auto w-full text-left relative"
+        className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 md:px-14 lg:px-16 max-w-4xl mx-auto w-full text-left relative"
       >
         <Reveal animation="fade-up">
-          <div className="mb-12 text-center">
+          <div className="mb-10 sm:mb-12 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#17140D] border border-[#D4AF37]/30 text-[11px] font-mono uppercase tracking-[0.16em] text-[#E7C45D]">
               <span>Got Questions?</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-sora font-bold text-white mt-3 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-sora font-bold text-white mt-3 tracking-tight">
               Frequently Asked Questions
             </h2>
           </div>
         </Reveal>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = activeFaq === idx;
             return (
@@ -913,21 +892,21 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   )}
                   <button
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
-                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between text-sm sm:text-[15px] font-semibold text-white hover:text-[#F8E296] transition-colors cursor-pointer"
+                    className="w-full p-4 sm:p-5 md:p-6 text-left flex items-center justify-between text-xs sm:text-sm md:text-[15px] font-semibold text-white hover:text-[#F8E296] transition-colors cursor-pointer"
                   >
-                    <span>{faq.q}</span>
+                    <span className="pr-2">{faq.q}</span>
                     <div
-                      className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-4 border transition-all ${
+                      className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center shrink-0 border transition-all ${
                         isOpen
                           ? 'bg-[#262010] border-[#D4AF37]/50 text-[#F8E296] rotate-180'
                           : 'bg-white/[0.03] border-white/[0.08] text-[#8E939E]'
                       }`}
                     >
-                      <ChevronDown className="w-4 h-4" />
+                      <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </button>
                   {isOpen && (
-                    <div className="px-5 sm:px-6 pb-6 text-xs sm:text-[13px] text-[#B0B6C1] leading-relaxed border-t border-white/[0.06] pt-4">
+                    <div className="px-4 sm:px-5 md:px-6 pb-5 sm:pb-6 text-xs sm:text-[13px] text-[#B0B6C1] leading-relaxed border-t border-white/[0.06] pt-3.5 sm:pt-4">
                       {faq.a}
                     </div>
                   )}
@@ -941,26 +920,26 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       {/* =====================================================================
           6. GRAND EXECUTIVE BOTTOM CTA
          ===================================================================== */}
-      <section className="py-20 px-6 md:px-14 lg:px-16 max-w-6xl mx-auto w-full">
+      <section className="py-14 sm:py-20 px-5 sm:px-8 md:px-14 lg:px-16 max-w-6xl mx-auto w-full">
         <Reveal animation="pop">
-          <div className="gold-glass-plaque rounded-[32px] px-6 py-16 sm:px-14 sm:py-20 text-center relative overflow-hidden">
-            <div className="absolute -top-px left-16 right-16 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/85 to-transparent" />
+          <div className="gold-glass-plaque rounded-2xl sm:rounded-[32px] px-5 py-12 sm:px-14 sm:py-20 text-center relative overflow-hidden">
+            <div className="absolute -top-px left-10 sm:left-16 right-10 sm:right-16 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/85 to-transparent" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.16)_0%,transparent_65%)] pointer-events-none" />
 
             <div className="relative z-10 flex flex-col items-center">
-              <MindLogo size="md" framed showWordmark={false} className="mb-6" />
-              <h2 className="text-3xl sm:text-4xl font-sora font-bold text-white mb-4 tracking-tight max-w-2xl">
+              <MindLogo size="md" framed showWordmark={false} className="mb-5 sm:mb-6" />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-sora font-bold text-white mb-3 sm:mb-4 tracking-tight max-w-2xl">
                 Ready to Experience Your Financial Life,{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E2BE52] via-[#F7DF94] to-[#C99E2C]">
                   Remembered?
                 </span>
               </h2>
-              <p className="text-sm sm:text-base text-[#9CA3AF] mb-8 max-w-xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base text-[#9CA3AF] mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed">
                 Enter Mind, connect your Sui wallet inside the app to create your permanent account, and unlock personalized intelligence powered by Tatum &amp; Walrus.
               </p>
               <button
                 onClick={onLaunchApp}
-                className="btn-gold-primary px-9 py-4 rounded-full font-semibold text-sm inline-flex items-center gap-2.5 cursor-pointer"
+                className="btn-gold-primary px-8 sm:px-9 py-3.5 sm:py-4 rounded-full font-semibold text-xs sm:text-sm inline-flex items-center justify-center gap-2.5 w-full sm:w-auto cursor-pointer"
               >
                 <span>Enter Mind App</span>
                 <ArrowRight className="w-4 h-4" />
@@ -971,12 +950,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </section>
 
       {/* Footer */}
-      <footer className="py-9 border-t border-white/[0.07] px-6 md:px-14 lg:px-16 flex flex-col md:flex-row items-center justify-between text-xs text-[#8E939E] max-w-7xl mx-auto w-full gap-4">
-        <div className="flex items-center gap-3">
+      <footer className="py-7 sm:py-9 border-t border-white/[0.07] px-5 sm:px-8 md:px-14 lg:px-16 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-[#8E939E] max-w-7xl mx-auto w-full gap-3 sm:gap-4 text-center sm:text-left">
+        <div className="flex items-center gap-2 sm:gap-3">
           <MindLogo size="sm" />
           <span>• Personal Onchain Financial Intelligence</span>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 sm:gap-6">
           <span className="text-[#E7C45D]">Powered by Tatum &amp; Walrus</span>
           <span>Sui Mainnet</span>
         </div>
