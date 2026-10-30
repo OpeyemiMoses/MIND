@@ -251,15 +251,27 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           className="hidden lg:flex items-center justify-end absolute inset-y-0 right-[-4%] xl:right-[-2%] w-[88%] xl:w-[85%] max-w-[1560px] z-10 cursor-pointer group select-none"
         >
           <div className="relative w-full h-full flex items-center justify-end">
-            <Image
-              src={activeHeroImage}
-              alt="Mind Financial Intelligence Agent Interface"
-              loading="eager"
-              fetchPriority="high"
-              quality={95}
-              sizes="(min-width: 1024px) 85vw, 100vw"
-              className="w-full h-auto max-h-[860px] object-contain object-right scale-[1.06] xl:scale-[1.08] origin-right transition-transform duration-700 ease-out group-hover:scale-[1.095]"
-            />
+            <div
+              className={`relative ${
+                isLight
+                  ? 'rounded-3xl p-2 bg-gradient-to-br from-[#1C1810] via-[#0E0C09] to-[#050505] border border-[#D4AF37]/35 shadow-[0_28px_70px_-15px_rgba(184,144,37,0.25),0_12px_32px_rgba(0,0,0,0.12)] overflow-hidden mr-6 xl:mr-10 my-auto'
+                  : ''
+              }`}
+            >
+              <Image
+                src={activeHeroImage}
+                alt="Mind Financial Intelligence Agent Interface"
+                loading="eager"
+                fetchPriority="high"
+                quality={95}
+                sizes="(min-width: 1024px) 85vw, 100vw"
+                className={`w-full h-auto max-h-[860px] object-contain object-right ${
+                  isLight
+                    ? 'scale-100 rounded-2xl'
+                    : 'hero-scene-mask scale-[1.06] xl:scale-[1.08] origin-right transition-transform duration-700 ease-out group-hover:scale-[1.095]'
+                }`}
+              />
+            </div>
 
             <div className="gold-glass-plaque absolute bottom-[20%] xl:bottom-[21%] right-[6.5%] xl:right-[7.5%] px-6 py-4.5 rounded-2xl min-w-[260px] max-w-[295px] transition-all duration-500 group-hover:translate-y-[-3px] group-hover:border-[#F5D76E]/60 z-20">
               <div className="absolute -top-px left-6 right-10 h-px bg-gradient-to-r from-transparent via-[#FFF0B3]/80 to-transparent" />
@@ -336,15 +348,25 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               onClick={onLaunchApp}
               className="lg:hidden relative -mx-6 sm:-mx-10 pt-4 pb-6 cursor-pointer"
             >
-              <div className="relative w-full">
-                <Image
-                  src={activeHeroImage}
-                  alt="Mind Financial Intelligence Agent Interface"
-                  loading="eager"
-                  quality={92}
-                  sizes="100vw"
-                  className="w-full h-auto object-contain hero-scene-mask scale-110 sm:scale-105"
-                />
+              <div className={`relative w-full ${isLight ? 'px-4 sm:px-6' : ''}`}>
+                <div
+                  className={
+                    isLight
+                      ? 'rounded-2xl p-1.5 bg-gradient-to-br from-[#1C1810] via-[#0E0C09] to-[#050505] border border-[#D4AF37]/35 shadow-[0_20px_50px_-10px_rgba(184,144,37,0.22)] overflow-hidden'
+                      : ''
+                  }
+                >
+                  <Image
+                    src={activeHeroImage}
+                    alt="Mind Financial Intelligence Agent Interface"
+                    loading="eager"
+                    quality={92}
+                    sizes="100vw"
+                    className={`w-full h-auto object-contain ${
+                      isLight ? 'rounded-xl' : 'hero-scene-mask scale-110 sm:scale-105'
+                    }`}
+                  />
+                </div>
                 <div className="gold-glass-plaque absolute bottom-2 right-6 sm:right-10 px-4 py-3 rounded-xl max-w-[230px]">
                   <div className="flex items-center justify-between mb-1">
                     <MindLogo size="sm" />
