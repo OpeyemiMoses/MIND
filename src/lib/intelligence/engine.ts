@@ -87,21 +87,21 @@ export interface ReplayComparison {
 }
 
 const AskMindLlmSchema = z.object({
-  answer: z.string().min(8).max(420),
-  observations: z.array(z.string().min(6)).min(2).max(5),
-  recommendation: z.string().min(12).max(600),
-  uncertainties: z.array(z.string().min(6)).min(1).max(3),
+  answer: z.string().min(4).max(1200),
+  observations: z.array(z.string().min(4)).min(1).max(10),
+  recommendation: z.string().min(6).max(1500),
+  uncertainties: z.array(z.string().min(4)).min(0).max(6),
 });
 
 const ReplayModeOutputSchema = z.object({
-  text: z.string().min(16).max(750),
-  keyPoints: z.array(z.string().min(5)).min(2).max(4),
+  text: z.string().min(8).max(2500),
+  keyPoints: z.array(z.string().min(4)).min(1).max(8),
 });
 
 const ReplaySynthesisSchema = z.object({
-  whatChanged: z.array(z.string().min(8)).min(2).max(4),
-  whyContextMatters: z.string().min(16).max(550),
-  uncertainties: z.array(z.string().min(8)).min(1).max(3),
+  whatChanged: z.array(z.string().min(4)).min(1).max(8),
+  whyContextMatters: z.string().min(8).max(1800),
+  uncertainties: z.array(z.string().min(4)).min(0).max(6),
 });
 
 function buildFrozenSnapshot(wallet: WalletOverview): FrozenEvidenceSnapshot {
