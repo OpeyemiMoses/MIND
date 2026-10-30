@@ -12,7 +12,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:e2e": "node scripts/test-e2e.mjs",
+    "readiness": "node scripts/hackathon-readiness.mjs"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.14.7",
