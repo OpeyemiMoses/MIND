@@ -69,7 +69,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               title="Back to Mind Home"
               className="cursor-pointer transition-opacity hover:opacity-90"
             >
-              <MindLogo size="md" showWordmark={!isCompact} />
+              <MindLogo size="md" showWordmark={!isCompact} framed={isCompact} />
             </div>
 
             {isMobileDrawer ? (

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mindBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14120D" />
+      <stop offset="100%" stop-color="#060606" />
+    </linearGradient>
+    <linearGradient id="mindGoldLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBE69B" />
+      <stop offset="48%" stop-color="#D9B343" />
+      <stop offset="100%" stop-color="#947114" />
+    </linearGradient>
+    <linearGradient id="mindGoldCenter" x1="0%" y1="15%" x2="100%" y2="85%">
+      <stop offset="0%" stop-color="#A67F1A" />
+      <stop offset="50%" stop-color="#E6C35C" />
+      <stop offset="100%" stop-color="#FFF0B3" />
+    </linearGradient>
+    <linearGradient id="mindGoldRight" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FFF1B8" />
+      <stop offset="45%" stop-color="#E2BE52" />
+      <stop offset="100%" stop-color="#9E7916" />
+    </linearGradient>
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#D4AF37" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Smoked Obsidian Squircle Container -->
+  <rect x="2" y="2" width="96" height="96" rx="24" fill="url(#mindBg)" stroke="#D4AF37" stroke-width="2.5" stroke-opacity="0.5" />
+  <rect x="4" y="4" width="92" height="92" rx="22" fill="none" stroke="#FFF0B3" stroke-width="1" stroke-opacity="0.2" />
+
+  <!-- Mind 3D Origami Gold Logo Emblem -->
+  <g filter="url(#goldGlow)" transform="translate(4, 3) scale(0.92)">
+    <!-- Left Isometric Ribbon -->
+    <path d="M 16,26 L 34,15 L 34,84 L 16,72 Z" fill="url(#mindGoldLeft)" />
+
+    <!-- Center Folded Bridge -->
+    <path d="M 34,36 L 51,49 L 66,33 L 66,54 L 50,70 L 34,57 Z" fill="url(#mindGoldCenter)" />
+
+    <!-- Right Taller Ribbon -->
+    <path d="M 66,21 L 85,10 L 85,79 L 66,91 Z" fill="url(#mindGoldRight)" />
+  </g>
+</svg>

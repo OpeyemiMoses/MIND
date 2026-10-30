@@ -255,6 +255,7 @@ function AppContent() {
           title={currentView !== 'dashboard' ? headerMeta[currentView].title : undefined}
           subtitle={currentView !== 'dashboard' ? headerMeta[currentView].subtitle : undefined}
           onOpenMobileNav={() => setMobileNavOpen(true)}
+          onGoToLanding={() => setCurrentView('landing')}
         />
 
         <main className="flex-1 p-5 sm:p-8 max-w-7xl w-full mx-auto">

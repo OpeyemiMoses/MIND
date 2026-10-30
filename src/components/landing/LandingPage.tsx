@@ -145,7 +145,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
         {/* Collapsible Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <nav className="lg:hidden pb-5 pt-2 border-t border-white/[0.06] flex flex-col gap-3 text-sm font-medium text-[#D1D5DB]">
+          <nav className="lg:hidden pb-5 pt-3 border-t border-white/[0.06] flex flex-col gap-3 text-sm font-medium text-[#D1D5DB]">
+            <div className="flex items-center justify-between pb-1">
+              <MindLogo size="sm" showWordmark={true} />
+            </div>
             <a
               href="#hero"
               onClick={() => setMobileMenuOpen(false)}

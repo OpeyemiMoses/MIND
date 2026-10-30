@@ -1,16 +1,18 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Wallet, Menu, Sun, Sunrise, Moon } from 'lucide-react';
+import { Wallet, Menu } from 'lucide-react';
 import { useWallet } from '@/context/WalletContext';
 import { getTimeGreeting, TimeGreeting } from '@/lib/accounts/types';
 import { ThemeToggle } from './ThemeToggle';
+import { MindLogo } from './MindLogo';
 
 interface AppHeaderProps {
   isDashboard?: boolean;
   title?: string;
   subtitle?: string;
   onOpenMobileNav?: () => void;
+  onGoToLanding?: () => void;
 }
 
 export const AppHeader: React.FC<AppHeaderProps> = ({
@@ -18,6 +20,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
   title,
   subtitle,
   onOpenMobileNav,
+  onGoToLanding,
 }) => {
   const { connected, address, account, openWalletModal } = useWallet();
   const [greeting, setGreeting] = useState<TimeGreeting>(() => getTimeGreeting());
@@ -40,13 +43,6 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
     ? 'Live Sui Mainnet intelligence synced to your personal account.'
     : 'Connect your Sui wallet to load live Sui Mainnet balances and your personal account.';
 
-  const GreetingIcon =
-    greeting.period === 'morning'
-      ? Sunrise
-      : greeting.period === 'afternoon'
-      ? Sun
-      : Moon;
-
   return (
     <header className="h-20 border-b border-white/[0.06] bg-[#080808]/80 backdrop-blur-xl px-5 sm:px-8 flex items-center justify-between sticky top-0 z-20 gap-4">
       <div className="flex items-center gap-3.5 min-w-0">
@@ -60,21 +56,41 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
           </button>
         )}
 
+        {/* Mobile Header Nav Icon / Logo */}
+        <div
+          onClick={onGoToLanding}
+          className="lg:hidden cursor-pointer flex items-center shrink-0 transition-transform active:scale-95"
+          title="Mind Home"
+        >
+          <MindLogo size="sm" showWordmark={false} framed />
+        </div>
+
         <div className="min-w-0">
           {isDashboard ? (
             <div>
               <h1 className="text-lg sm:text-xl font-sora font-semibold text-white tracking-tight flex items-center gap-2.5 truncate">
-                <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#231D10] to-[#110F0A] border border-[#D4AF37]/40 flex items-center justify-center text-[#E7C45D] shrink-0">
-                  <GreetingIcon className="w-4 h-4" />
-                </span>
+                <div
+                  onClick={onGoToLanding}
+                  className="hidden lg:block cursor-pointer transition-transform hover:scale-105 shrink-0"
+                  title="Mind Home"
+                >
+                  <MindLogo size="sm" showWordmark={false} framed />
+                </div>
                 <span className="truncate">{dashboardHeadline}</span>
               </h1>
               <p className="text-xs text-[#8E939E] mt-0.5 truncate">{dashboardSub}</p>
             </div>
           ) : (
             <div>
-              <h1 className="text-lg sm:text-xl font-sora font-semibold text-white tracking-tight truncate">
-                {title}
+              <h1 className="text-lg sm:text-xl font-sora font-semibold text-white tracking-tight flex items-center gap-2.5 truncate">
+                <div
+                  onClick={onGoToLanding}
+                  className="hidden lg:block cursor-pointer transition-transform hover:scale-105 shrink-0"
+                  title="Mind Home"
+                >
+                  <MindLogo size="sm" showWordmark={false} framed />
+                </div>
+                <span className="truncate">{title}</span>
               </h1>
               {subtitle && <p className="text-xs text-[#8E939E] mt-0.5 truncate">{subtitle}</p>}
             </div>
