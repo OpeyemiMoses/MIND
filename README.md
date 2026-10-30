@@ -62,13 +62,13 @@
 > [!NOTE]
 > Mind adheres strictly to the **Sui Wallet Standard** and is **strictly read-only**. It never requests private keys, seed phrases, or transaction execution signatures.
 
-### 2. Step 2: Verify Real Tatum Sui Mainnet gRPC Data (30% Judging Criteria)
+### 2. Step 2: Verify Real Tatum Sui Mainnet gRPC Data
 1. Navigate to **Overview** and **Wallet Intelligence**.
 2. **Live Balances**: Inspect your native SUI balance and fungible tokens. Mind executes `suix_getAllBalances` via Tatum's high-speed Sui Gateway (`https://sui-mainnet-grpc.gateway.tatum.io`), automatically resolving decimals, icons, and live SUI spot price.
 3. **Transaction Blocks**: Review the paginated transaction blocks under **Wallet Intelligence** (`suix_queryTransactionBlocks`).
 4. **Onchain Verification**: Click any transaction digest to open the verified record directly on **SuiVision** or **Suiscan**. Notice that all transaction data is 100% verified onchain with zero mock entries.
 
-### 3. Step 3: Verify Persistent Decentralized Memory on Walrus Mainnet (30% Judging Criteria)
+### 3. Step 3: Verify Persistent Decentralized Memory on Walrus Mainnet
 1. Navigate to **Memory Timeline**.
 2. **Decentralized Storage**: Inspect your encrypted memory cards. Mind connects to the Walrus Memory Relayer (`https://relayer.memory.walrus.xyz`) using Ed25519 delegate keys and SEAL session key encryption.
 3. **Add a Memory**: Click **+ Add Memory** and input a real financial goal or preference:
@@ -77,7 +77,7 @@
 4. Watch the upload lifecycle: `Uploading to Walrus` &rarr; `Confirmed on Walrus Mainnet` with verifiable SEAL encryption status.
 5. **Cross-Session Persistence**: Refresh your browser, switch tabs, or sign in from another browser: your confirmed memories persist permanently on Walrus Mainnet.
 
-### 4. Step 4: Run Memory Replay — The Signature A/B Evaluation (20% Judging Criteria)
+### 4. Step 4: Run Memory Replay — The Signature A/B Evaluation
 1. Navigate to **Memory Replay**.
 2. This is Mind's signature evaluation tool, addressing the question: *Does memory materially improve financial outcomes?*
 3. Click **Run Live Replay** on the active transaction snapshot:
@@ -98,10 +98,6 @@
    - The prominent **Strategic Recommendation Box** provides direct, actionable advice.
    - The advice is grounded in both live Tatum chain evidence AND your recalled Walrus context.
    - If you mention a new preference or goal, Mind's heuristic engine automatically proposes a **Memory Candidate** for your confirmation.
-
-### 6. Step 6: Test Luxury Obsidian & Alabaster Theming
-1. Click the **Theme Toggle** (sun/moon icon) in the header navigation.
-2. Experience Mind's **Swiss Private Wealth** aesthetic in both **Obsidian Dark** (`#080808` / gold accents) and **Alabaster Light** (`#FAF8F5` / antique gold accents). Notice the zero-emoji restraint and high-contrast readability.
 
 ---
 
