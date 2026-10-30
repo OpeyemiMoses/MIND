@@ -1,0 +1,425 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #080808;
+    --foreground: #f5f5f5;
+    --card: #121212;
+    --card-surface: #0e0d0b;
+    --card-hover: #181818;
+    --border: #262626;
+    --gold: #d4af37;
+    --gold-soft: #f5d76e;
+    --muted: #8e939e;
+    --green-accent: #2ccd9a;
+  }
+
+  html.light, :root.light {
+    --background: #faf9f5;
+    --foreground: #111827;
+    --card: #ffffff;
+    --card-surface: #f4f3ee;
+    --card-hover: #eceae3;
+    --border: #e6e4dc;
+    --gold: #b89025;
+    --gold-soft: #a07817;
+    --muted: #6b7280;
+    --green-accent: #159b72;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #080808;
+}
+
+html.dark {
+  color-scheme: dark;
+  background-color: #080808;
+}
+
+html.light {
+  color-scheme: light;
+  background-color: #faf9f5;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3, h4, .font-sora {
+  font-family: var(--font-sora), system-ui, -apple-system, sans-serif;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #faf9f5;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #d1d0c7;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #b89025;
+}
+
+/* Luxury Primary & Secondary Buttons */
+.btn-gold-primary {
+  background: linear-gradient(180deg, #f8e296 0%, #e7c45d 48%, #d2ab34 100%);
+  color: #0a0a0a !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 252, 232, 0.78),
+    inset 0 -1px 1px rgba(138, 102, 12, 0.35),
+    0 10px 34px -6px rgba(212, 175, 55, 0.42),
+    0 2px 10px rgba(212, 175, 55, 0.2);
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 220ms ease, filter 220ms ease;
+}
+
+.btn-gold-primary:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 252, 232, 0.9),
+    0 14px 42px -6px rgba(212, 175, 55, 0.56),
+    0 4px 14px rgba(245, 215, 110, 0.28);
+}
+
+.btn-gold-primary:active {
+  transform: translateY(0px) scale(0.985);
+}
+
+html.light .btn-gold-primary {
+  box-shadow:
+    inset 0 1px 1px rgba(255, 252, 232, 0.9),
+    inset 0 -1px 1px rgba(138, 102, 12, 0.25),
+    0 10px 28px -6px rgba(184, 144, 37, 0.38),
+    0 2px 8px rgba(184, 144, 37, 0.2);
+}
+
+.btn-gold-secondary {
+  background: linear-gradient(180deg, rgba(22, 20, 15, 0.78) 0%, rgba(10, 10, 10, 0.88) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(245, 215, 110, 0.14),
+    0 8px 24px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  transition: all 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-gold-secondary:hover {
+  border-color: rgba(245, 215, 110, 0.68);
+  background: linear-gradient(180deg, rgba(32, 28, 18, 0.86) 0%, rgba(14, 14, 14, 0.92) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(245, 215, 110, 0.25),
+    0 0 24px -4px rgba(212, 175, 55, 0.24);
+}
+
+html.light .btn-gold-secondary {
+  background: linear-gradient(180deg, #ffffff 0%, #f6f5f0 100%);
+  border: 1px solid rgba(184, 144, 37, 0.35);
+  color: #1a1a1a !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 4px 14px rgba(35, 28, 12, 0.06);
+}
+
+html.light .btn-gold-secondary:hover {
+  border-color: rgba(184, 144, 37, 0.65);
+  background: linear-gradient(180deg, #ffffff 0%, #edeae0 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 0 20px -4px rgba(184, 144, 37, 0.2);
+}
+
+/* Smoked Obsidian Glass Plaque with Specular Gold Rim */
+.gold-glass-plaque {
+  background: linear-gradient(
+    145deg,
+    rgba(24, 21, 14, 0.82) 0%,
+    rgba(11, 11, 11, 0.9) 55%,
+    rgba(8, 8, 8, 0.94) 100%
+  );
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(212, 175, 55, 0.34);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 236, 168, 0.32),
+    inset 1px 0 0 0 rgba(212, 175, 55, 0.18),
+    0 24px 60px -12px rgba(0, 0, 0, 0.92),
+    0 0 36px -8px rgba(212, 175, 55, 0.18);
+}
+
+html.light .gold-glass-plaque {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(252, 250, 246, 0.98) 55%,
+    rgba(248, 246, 240, 1) 100%
+  );
+  border: 1px solid rgba(184, 144, 37, 0.28);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+    inset 1px 0 0 0 rgba(184, 144, 37, 0.16),
+    0 20px 48px -12px rgba(35, 25, 10, 0.08),
+    0 0 32px -8px rgba(184, 144, 37, 0.12);
+}
+
+/* Luxury Landing & Feature Cards Matching Hero Visual Language */
+.mind-luxury-card {
+  background: linear-gradient(
+    160deg,
+    rgba(26, 22, 14, 0.82) 0%,
+    rgba(13, 13, 13, 0.94) 48%,
+    rgba(9, 9, 9, 0.98) 100%
+  );
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 240, 185, 0.18),
+    0 20px 50px -15px rgba(0, 0, 0, 0.85);
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.mind-luxury-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(245, 215, 110, 0.48);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 244, 198, 0.34),
+    0 26px 60px -14px rgba(0, 0, 0, 0.92),
+    0 0 38px -10px rgba(212, 175, 55, 0.22);
+}
+
+html.light .mind-luxury-card {
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(252, 250, 246, 0.98) 48%,
+    rgba(248, 246, 240, 1) 100%
+  );
+  border: 1px solid rgba(184, 144, 37, 0.22);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+    0 16px 36px -12px rgba(25, 20, 10, 0.06);
+}
+
+html.light .mind-luxury-card:hover {
+  border-color: rgba(184, 144, 37, 0.48);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 1),
+    0 24px 50px -12px rgba(25, 20, 10, 0.12),
+    0 0 32px -8px rgba(184, 144, 37, 0.16);
+}
+
+/* Seamless Full-Bleed Hero Stage Masking */
+.hero-scene-mask {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.12) 14%, rgba(0, 0, 0, 0.68) 30%, #000 46%, #000 92%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 10%, #000 84%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.12) 14%, rgba(0, 0, 0, 0.68) 30%, #000 46%, #000 92%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 10%, #000 84%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* Custom glow utilities */
+.glow-gold {
+  box-shadow: 0 0 40px -10px rgba(212, 175, 55, 0.25);
+}
+
+.glow-gold-sm {
+  box-shadow: 0 0 20px -5px rgba(212, 175, 55, 0.2);
+}
+
+html.light .glow-gold {
+  box-shadow: 0 0 36px -8px rgba(184, 144, 37, 0.22);
+}
+
+/* =========================================================================
+   LIGHT THEME SEMANTIC AUTOMATIONS
+   Transforms dark surfaces, borders, and text hierarchies into a cohesive,
+   radiant luxury private-wealth aesthetic (ivory, alabaster, burnished gold).
+   ========================================================================= */
+
+/* 1. Page Backgrounds */
+html.light .bg-\[\#080808\],
+html.light .bg-\[\#0A0A0A\],
+html.light .bg-\[\#0B0B0B\],
+html.light .bg-\[\#0C0C0C\],
+html.light .bg-\[\#0D0D0D\],
+html.light .bg-\[\#0E0E0E\],
+html.light .bg-\[\#121212\] {
+  background-color: #faf9f5 !important;
+}
+
+html.light .bg-\[\#080808\]\/70,
+html.light .bg-\[\#080808\]\/80 {
+  background-color: rgba(250, 249, 245, 0.88) !important;
+}
+
+/* 2. Secondary Surfaces & Card Rows (White with subtle ivory/gold border) */
+html.light .bg-\[\#0D0C0A\]\/90,
+html.light .bg-\[\#0C0B09\]\/80,
+html.light .bg-\[\#0B0B0B\]\/85,
+html.light .bg-\[\#0B0B0B\]\/90,
+html.light .bg-\[\#0B0B0B\]\/95,
+html.light .bg-\[\#0E0E0E\]\/95,
+html.light .bg-\[\#0E0D0A\],
+html.light .bg-\[\#11100D\],
+html.light .bg-\[\#13110C\],
+html.light .bg-\[\#14120C\],
+html.light .bg-\[\#16140F\],
+html.light .bg-\[\#17140D\],
+html.light .bg-\[\#15130D\],
+html.light .bg-\[\#1C1810\],
+html.light .bg-\[\#1A160C\],
+html.light .bg-\[\#1D180C\] {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 3. Dark Gradients & Active Pills -> Warm Alabaster with Antique Gold Rim */
+html.light [class*="from-[#28200E]"],
+html.light [class*="from-[#261F0E]"],
+html.light [class*="from-[#2A2312]"],
+html.light [class*="from-[#231D10]"],
+html.light [class*="from-[#261E0D]"],
+html.light [class*="from-[#231D0E]"],
+html.light [class*="from-[#2B230F]"],
+html.light [class*="from-[#2A220E]"],
+html.light [class*="from-[#19160E]"],
+html.light [class*="from-[#251E0F]"],
+html.light [class*="from-[#261E0E]"] {
+  background-image: none !important;
+  background-color: #faf7ee !important;
+  border-color: rgba(184, 144, 37, 0.38) !important;
+}
+
+html.light [class*="from-[#28200E]"] *,
+html.light [class*="from-[#261F0E]"] *,
+html.light [class*="from-[#2A2312]"] *,
+html.light [class*="from-[#231D10]"] *,
+html.light [class*="from-[#261E0D]"] *,
+html.light [class*="from-[#231D0E]"] *,
+html.light [class*="from-[#2B230F]"] *,
+html.light [class*="from-[#2A220E]"] *,
+html.light [class*="from-[#19160E]"] *,
+html.light [class*="from-[#251E0F]"] *,
+html.light [class*="from-[#261E0E]"] * {
+  color: #946f14 !important;
+}
+
+/* 4. Subtle Borders */
+html.light [class*="border-white/"] {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light [class*="border-[#D4AF37]/"] {
+  border-color: rgba(184, 144, 37, 0.3) !important;
+}
+
+/* 5. Headings & High-Emphasis Text */
+html.light h1:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light h2:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light h3:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light h4:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light .text-white:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light .text-\[\#F5F5F5\]:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light .text-\[\#F7F7F5\]:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light .text-\[\#F7F3E8\]:not(.btn-gold-primary *):not(.btn-gold-primary) {
+  color: #111827 !important;
+}
+
+/* 6. Medium-Emphasis Body Text */
+html.light .text-\[\#D1D5DB\]:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light .text-\[\#E5E7EB\]:not(.btn-gold-primary *):not(.btn-gold-primary) {
+  color: #374151 !important;
+}
+
+/* 7. Muted & Monospace Captions */
+html.light .text-\[\#9CA3AF\]:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light .text-\[\#8E939E\]:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light .text-\[\#6B7280\]:not(.btn-gold-primary *):not(.btn-gold-primary) {
+  color: #6b7280 !important;
+}
+
+/* 8. Burnished Antique Gold Text for High Contrast */
+html.light .text-\[\#E7C45D\]:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light .text-\[\#F8E296\]:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light .text-\[\#F5D76E\]:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light .text-\[\#FFF0B3\]:not(.btn-gold-primary *):not(.btn-gold-primary),
+html.light .text-\[\#F5E6B8\]:not(.btn-gold-primary *):not(.btn-gold-primary) {
+  color: #a07817 !important;
+}
+
+html.light .text-\[\#D4AF37\]:not(.btn-gold-primary *):not(.btn-gold-primary) {
+  color: #b89025 !important;
+}
+
+/* 9. Interactive Hover Text (Preventing Text from Turning White on Hover in Light Mode) */
+html.light [class*="hover:text-white"]:hover,
+html.light [class*="hover:text-[#F5F5F5]"]:hover,
+html.light [class*="hover:text-[#F7F7F5]"]:hover,
+html.light [class*="hover:text-[#D1D5DB]"]:hover,
+html.light [class*="hover:text-[#E5E7EB]"]:hover {
+  color: #111827 !important;
+}
+
+html.light .group:hover [class*="group-hover:text-white"],
+html.light [class*="group-hover:text-white"]:hover {
+  color: #111827 !important;
+}
+
+html.light [class*="hover:text-[#FFF0B3]"]:hover,
+html.light [class*="hover:text-[#F8E296]"]:hover,
+html.light [class*="hover:text-[#F5D76E]"]:hover,
+html.light [class*="hover:text-[#E7C45D]"]:hover {
+  color: #946f14 !important;
+}
+
+html.light .group:hover [class*="group-hover:text-[#F8E296]"],
+html.light [class*="group-hover:text-[#F8E296]"]:hover {
+  color: #946f14 !important;
+}
+
+html.light [class*="hover:bg-white/"]:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* 10. Form Inputs & Textareas */
+html.light input:not([type="checkbox"]):not([type="radio"]),
+html.light textarea,
+html.light select {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+/* 11. Hero Section Adaptations */
+html.light #hero {
+  background-color: #faf9f5 !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
